@@ -1,5 +1,4 @@
-
-Copyright (c) 2016, Taz8du29
+Copyright (c) 2015 - 2017, Taz8du29
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
