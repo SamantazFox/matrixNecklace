@@ -14,44 +14,10 @@
 /* MAIN FUNCTION */
 
 int main(void) {
-
-	_delay_ms(2500);
-
-	pwm_pin1A(1000);
-	pwm_pin1B(750);
-
-
+	// Main loop
 	while(true) {
-	/*
-		for(char i = 0x000; i < 0x3FF; i++) {
-			pwm_pin1A(i);
-			pwm_pin1B((0x3FF-i));
 
-			_delay_ms(250);
-		}
-
-		for(char i = 0x3FF; i > 0x000; i--) {
-			pwm_pin1A(i);
-			pwm_pin1B((0x3FF-i));
-
-			_delay_ms(250);
-		}
-	*/
 	}
-
-
-/*
-	setPortOut(PORTB);
-	setPortOut(PORTD);
-
-	char a = 0x05;
-
-	PORTB = swap(a);
-
-	PORTD = swap(PORTB);
-
-	while(true);
-*/
 
 /*
 	i2c_init();
