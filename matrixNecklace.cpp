@@ -26,7 +26,6 @@
 
 // A small 1-wire Serial interface (Tx version) made by Nerd Ralph
 //#include <BasicSerial.h>
-#include <serialTest.h>
 
 // My pattern file
 #include "patterns.h"
@@ -44,10 +43,10 @@ short rows[8][2] = {{PORTB,0}, {PORTB,5}, {PORTD,5}, {PORTD,0}, {PORTD,4}, {PORT
 short cols[8][2] = {{PORTA,1}, {PORTA,0}, {PORTB,1}, {PORTD,3}, {PORTB,2}, {PORTB,6}, {PORTB,7}, {PORTD,5}};
 
 // Serial strings
-PROGMEM const char initDone[] = "Initialisation done.\n\r";
-PROGMEM const char scrFilld[] = "Screen filled !\n\r";
-PROGMEM const char scrClear[] = "Screen cleared !\n\r";
-PROGMEM const char writingP[] = "writing pattern : ";
+PROGMEM const uint8_t initDone[] = "Initialisation done.\n\r";
+PROGMEM const uint8_t scrFilld[] = "Screen filled !\n\r";
+PROGMEM const uint8_t scrClear[] = "Screen cleared !\n\r";
+PROGMEM const uint8_t writingP[] = "writing pattern : ";
 
 
 
@@ -55,17 +54,17 @@ PROGMEM const char writingP[] = "writing pattern : ";
 
 // MySerial initialisation
 // extern "C" void SendByte(char) {}
-void serOut(const char* str) {while (*str) SendByte(*str++);}
+void serOut(const uint8_t* str) {while (*str) SendByte(*str++);}
 
-void serOut_P(const char* str) {while (pgm_read_byte(*str)) SendByte(pgm_read_byte(*str++));}
+void serOut_P(const uint8_t* str) {while (pgm_read_byte(*str)) SendByte(pgm_read_byte(*str++));}
 
 // BasicSerial main function implementation
-// void serOut(const char* str) { while (*str) TxByte(*str++); }
-// void serOut_P(const char* str) { while (pgm_read_byte(*str)) TxByte(pgm_read_byte(*str++)); }
+// void serOut(const uint8_t* str) { while (*str) TxByte(*str++); }
+// void serOut_P(const uint8_t* str) { while (pgm_read_byte(*str)) TxByte(pgm_read_byte(*str++)); }
 
 // Light all the matrix's LEDs
 void fillScreen(void) {
-	for(int i = 0; i < 8; i++) {
+	for(uint8_t i = 0; i < 8; i++) {
 		sbi(rows[i][0], rows[i][1]);
 		cbi(cols[i][0], cols[i][1]);
 	}
@@ -75,7 +74,7 @@ void fillScreen(void) {
 // Shut off all the matrix's LEDs
 /*
 void clearScreen(void) {
-	for(int i = 0; i < 8; i++) {
+	for(uint8_t i = 0; i < 8; i++) {
 		cbi(rows[i][0], rows[i][1]);
 		sbi(cols[i][0], cols[i][1]);
 	}
@@ -85,11 +84,11 @@ void clearScreen(void) {
 
 // Write a specific number of times the desired pattern
 // TODO : improve timings efficiency (and power ?)
-void writePattern(const char pat[8], int frames) {
-	for(int x = 0; x < frames; x++) {
-		for(int i = 0; i < 8; i++) {
+void writePattern(const uint8_t pat[8], uint8_t frames) {
+	for(uint8_t x = 0; x < frames; x++) {
+		for(uint8_t i = 0; i < 8; i++) {
 			sbi(rows[i][0], rows[i][1]);
-			for(int j = 7; j >= 0; j--) {
+			for(uint8_t j = 7; j >= 0; j--) {
 				if(readBit(pgm_read_byte(pat[i]), j)) { cbi(cols[j][0], cols[j][1]); }
 				sbi(cols[j][0], cols[j][1]);
 			}
