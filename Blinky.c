@@ -14,24 +14,10 @@
 /* MAIN FUNCTION */
 
 int main(void) {
+	// test of the H44780 LCD library
+	lcd_init();
+
 	// Main loop
-	while(true) {
-
-	}
-
-/*
-	i2c_init();
-	char msg[3] = {slaveAddr(0x07, i2c_WRITE), 0x55, 0xFF};
-
-	while(true) {
-		_delay_us(100);
-		i2c_send(msg);
-	}
-*/
-
-/*
-	//lcd_init();
-
 	while(true) {
 		for(char i = 0x00; i <= 0xFF ; i++) {
 			lcd_write(CMD, lcd_clearDisplay_CMD);
@@ -45,5 +31,4 @@ int main(void) {
 			_delay_ms(1000);
 		}
 	}
-*/
 }
