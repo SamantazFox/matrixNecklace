@@ -20,11 +20,11 @@ void waitForInput(int del = 500) {
 
 void setup() {
 	Serial.begin(9600);
-	
-	for(int i = 0; i < 16; i++) {
+
+    for(uint8_t i = 0; i < 16; i++) {
 		pinMode(pin[i], OUTPUT);
 	}
-	
+
 	pinMode(10, INPUT);
 	digitalWrite(10, HIGH);
 }
@@ -47,7 +47,7 @@ void loop() {
 
 
 	Serial.println("----- COLS -----");
-	
+
 	for(int i = 0; i < 16; i++) {
 		digitalWrite(pin[i], HIGH);
 	}
@@ -61,3 +61,4 @@ void loop() {
 		digitalWrite(pin[i], HIGH);
 	}
 }
+
