@@ -10,9 +10,9 @@
 	A5 -|_9___________8_|- 2
 */
 
-int pin[16] = {9, 8, 7, 6, 5, 4, 3, 2, A5, A4, A3, A2, A1, A0, 12, 13};
+short pin[16] = {9, 8, 7, 6, 5, 4, 3, 2, A5, A4, A3, A2, A1, A0, 12, 13};
 
-void waitForInput(int del = 500) {
+void waitForInput(uint8_t del = 500) {
 	while(digitalRead(10) == HIGH) {}
 	delay(del);
 }
@@ -32,11 +32,11 @@ void setup() {
 void loop() {
 	Serial.println("----- ROWS -----");
 
-	for(int i = 0; i < 16; i++) {
+	for(uint8_t i = 0; i < 16; i++) {
 		digitalWrite(pin[i], LOW);
 	}
 
-	for(int i = 0; i < 16; i++) {
+	for(uint8_t i = 0; i < 16; i++) {
 		Serial.print("Pin : ");
 		Serial.println(i);
 
@@ -48,11 +48,11 @@ void loop() {
 
 	Serial.println("----- COLS -----");
 
-	for(int i = 0; i < 16; i++) {
+	for(uint8_t i = 0; i < 16; i++) {
 		digitalWrite(pin[i], HIGH);
 	}
 
-	for(int i = 0; i < 16; i++) {
+	for(uint8_t i = 0; i < 16; i++) {
 		Serial.print("Pin : ");
 		Serial.println(i);
 
@@ -61,4 +61,3 @@ void loop() {
 		digitalWrite(pin[i], HIGH);
 	}
 }
-

@@ -28,10 +28,10 @@ short rows[8] = {2, 7, A5, 5, 13, A4, 12, A2};
 short cols[8] = {6, A0, A1, 3, A3, 4, 8, 9};
 
 void fillScreen() {
-	for(int i = 0; i < 8; i++) {
+	for(uint8_t i = 0; i < 8; i++) {
 		digitalWrite(rows[i], HIGH);
 
-		for(int j = 0; j < 8; j++) {
+		for(uint8_t j = 0; j < 8; j++) {
 			digitalWrite(cols[j], LOW);
 			digitalWrite(cols[j], HIGH);
 		}
@@ -41,7 +41,7 @@ void fillScreen() {
 }
 
 void clearScreen() {
-	for(int i = 0; i < 8; i++) {
+	for(uint8_t i = 0; i < 8; i++) {
 		pinMode(rows[i], OUTPUT);
 		digitalWrite(rows[i], LOW);
 		pinMode(cols[i], OUTPUT);
@@ -49,11 +49,11 @@ void clearScreen() {
 	}
 }
 
-void writePattern(char pat[8], int frames) {
- for(int x = 0; x < frames; x++) {
-		for(int i = 0; i < 8; i++) {
+void writePattern(uint8_t pat[8], uint8_t frames) {
+ for(uint8_t x = 0; x < frames; x++) {
+		for(uint8_t i = 0; i < 8; i++) {
 			digitalWrite(rows[i], HIGH);
-			for(int j = 7; j >= 0; j--) {
+			for(uint8_t j = 7; j >= 0; j--) {
 				if(bitRead(pat[i], j) == 1) {
 					digitalWrite(cols[j], LOW);
 				}
@@ -75,13 +75,13 @@ void setup() {
 void loop() {
 
 	// Space invaders 2
-	for(int x = 0; x < 20; x++) {
+	for(uint8_t x = 0; x < 20; x++) {
 		writePattern(SI2_On, speed2);
 		writePattern(SI2_Off, speed2);
 	}
 
 	// Space invaders 1
-	for(int x = 0; x < 20; x++) {
+	for(uint8_t x = 0; x < 20; x++) {
 		writePattern(SI1_On, speed2);
 		writePattern(SI1_Off, speed2);
 	}

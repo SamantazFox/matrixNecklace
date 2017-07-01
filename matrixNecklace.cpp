@@ -53,7 +53,7 @@ PROGMEM const uint8_t writingP[] = "writing pattern : ";
 /* MAIN FUNCTION DEFINITIONS */
 
 // MySerial initialisation
-// extern "C" void SendByte(char) {}
+// extern "C" void SendByte(uint8_t) {}
 void serOut(const uint8_t* str) {while (*str) SendByte(*str++);}
 
 void serOut_P(const uint8_t* str) {while (pgm_read_byte(*str)) SendByte(pgm_read_byte(*str++));}
@@ -120,7 +120,7 @@ int main(void) {
 		// Battery animation
 		serOut_P(writingP);
 		serOut("Battery\n\r");
-		for(int x = 0; x < 15; x++) {
+		for(uint8_t x = 0; x < 15; x++) {
 			writePattern(bat_00, speed1);
 			writePattern(bat_20, speed1);
 			writePattern(bat_40, speed1);
@@ -132,7 +132,7 @@ int main(void) {
 		// Space Invaders 1 animation
 		serOut_P(writingP);
 		serOut("Space Invaders 1\n\r");
-		for(int x = 0; x < 20; x++) {
+		for(uint8_t x = 0; x < 20; x++) {
 			writePattern(SI1_On, speed2);
 			writePattern(SI1_Off, speed2);
 		}
@@ -140,7 +140,7 @@ int main(void) {
 		// Space Invaders 2 animation
 		serOut_P(writingP);
 		serOut("Space Invaders 2\n\r");
-		for(int x = 0; x < 20; x++) {
+		for(uint8_t x = 0; x < 20; x++) {
 			writePattern(SI2_On, speed2);
 			writePattern(SI2_Off, speed2);
 		}
@@ -149,19 +149,19 @@ int main(void) {
 		/*
 		serOut_P(writingP);
 		serOut("A small heart\n\r");
-		for(int x = 0; x < 10; x++) {
+		for(uint8_t x = 0; x < 10; x++) {
 			writePattern(heart, speed2);
 		}
 
 		serOut_P(writingP);
 		serOut("A smiley");
-		for(int x = 0; x < 10; x++) {
+		for(uint8_t x = 0; x < 10; x++) {
 			writePattern(smile, speed2);
 		}
 
 		serOut_P(writingP);
 		serOut("A clock");
-		for(int x = 0; x < 10; x++) {
+		for(uint8_t x = 0; x < 10; x++) {
 			writePattern(clock, speed2);
 		}
 		*/
