@@ -27,9 +27,15 @@ Hardware
 --------
 
 * AtTiny2313a 8 bits microcontroller
-
 * 8x8 dot LED matrix
-
 * Micro USB type B
-
 * TP4501 battery charger
+
+
+Folders
+-------
+
+* **doc/** Sphinx documentation.
+* **editor/** Cross-platform editor and programmer code.
+* **firmware/** AtTiny code.
+* **hardware/** KiCad schematics and PCB layout.
