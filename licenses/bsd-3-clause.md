@@ -1,14 +1,4 @@
-## LICENSING
-
-The following licence concerns matrixNecklace firmware and editor.
-
-For library-specific licences, look at the **licenses/** folder located in the
-project's root directory.
-
-
-## BSD 3-Clause license
-
-Copyright (c) 2015 - 2017, Taz8du29
+Copyright <YEAR> <COPYRIGHT HOLDER>
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are met:
