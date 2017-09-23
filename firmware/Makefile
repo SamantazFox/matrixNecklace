@@ -15,7 +15,9 @@
 MCU = attiny2313a
 MCUPROG = t2313
 
-# Processor frequency, in Hz
+# Processor frequency, in Hz. Do not append 'UL', it will be done for you.
+#     Typical values are: 1000000, 1843200, 2000000, 3686400, 4000000, 7372800,
+#                     8000000, 11059200, 14745600, 16000000, 18432000, 20000000
 F_CPU = 1000000
 
 # Output format. (can be srec, ihex, binary)
@@ -116,15 +118,11 @@ ALL_ASFLAGS = -mmcu=$(MCU) -I. -x assembler-with-cpp $(ASFLAGS)
 
 # Default target.
 all: init sizebefore build sizeafter
-
 .PHONY : all
-
 
 # Full compilation and upload to the chip.
 program: init sizebefore build sizeafter upload
-
 .PHONY : program
-
 
 # Create developpement directories.
 init:
@@ -134,7 +132,6 @@ init:
 
 # Build target.
 build: elf hex eep lss sym lib
-
 .PHONY : build
 
 # Build HEX and symbols files.
@@ -143,12 +140,10 @@ hex: .out/$(TARGET).hex
 eep: .out/$(TARGET).eep
 lss: .out/$(TARGET).lss
 sym: .out/$(TARGET).sym
-
 .PHONY : elf hex eep lss sym
 
 # Buil libraries.
 lib: .out/lib$(TARGET).a
-
 .PHONY : lib
 
 
