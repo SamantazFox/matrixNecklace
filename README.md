@@ -1,18 +1,17 @@
-matrixNecklace [status : dev]
-=============================
+# matrixNecklace
+
 
 Index
 -----
-* [Introduction](#Introduction)
-* [Project's Description](#Project's Description)
-* [Folders](#Folders)
-* [Known Issues](#Known Issues)
-* [To Do](#To Do)
+* [Introduction](#introduction)
+* [Project's Description](#projects-description)
+* [Folders](#folders)
+* [Known Issues](#known-issues)
+* [To Do](#to-do)
 
 
 Introduction
 ------------
-
 This project is a simple customizable necklace, based on an ~~AtTiny2313a~~ AtTiny48/88 and a 8x8 dot LED matrix.
 
 The very first idea came from furrtek's mind, called **jewelmatrix**. You can find his project on [his website](http://furrtek.free.fr/?a=jewelmatrix) (french).
@@ -95,4 +94,4 @@ To Do
     - Release schematics
     - Create BOM
     - Still AtTiny2313a version ?
-    - Mini USB type B version ? 
+    - Mini USB type B version ?
