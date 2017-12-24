@@ -20,26 +20,22 @@
 
 // FLTK libraries
 #include <FL/Fl.H>
-//#include <FL/Fl_Widget.H>
 #include <FL/Fl_Double_Window.H>
+#include <FL/Fl_Group.H>
 #include <FL/Fl_Toggle_Button.H>
 #include <FL/Fl_PNG_Image.H>
 
 
 
-/* CONSTANTS */
-
-#define MTX_DOT_SIZE 64
-
-
-
 /* CLASSES */
 
-class Led : public Fl_Toggle_Button {
+class Led : public Fl_Button {
 public:
     Led(int x, int y, bool state);
     void invert(void);
     int handle(int event);
+
+    static const u_int8_t dotSize = 64;
 
 private:
     Fl_Image* led_on = new Fl_PNG_Image("images/led_on.png");
@@ -49,12 +45,12 @@ private:
 
 class Application {
 public:
-    int run(void);
     Fl_Double_Window* makeWindow(void);
 
-private:
     static const int sizeX = 512;
     static const int sizeY = 512;
+
+private:
     const char* label = "matrixEditor";
 };
 
