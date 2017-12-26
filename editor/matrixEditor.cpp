@@ -53,20 +53,24 @@ Fl_Double_Window* Application::makeWindow(void)
     Fl_Double_Window* win = new Fl_Double_Window(this->sizeX, this->sizeY, this->label);
 
     // Create different childs
-    Fl_Group* ledMatrix = new Fl_Group(0, 0, this->sizeX, this->sizeY);
+    Fl_Menu_Bar* topMenu = makeMenu();
+    Fl_Group* ledMatrix = new Fl_Group(0, 30, 512, 512);
 
     // Create the buttons matrix. Each line is a Fl_Group containing eight Led
     // The whole matrix is then nested in the Fl_Group "ledMatrix"
     for (int i = 0; i < 8; i++) {
-        ledMatrix->add( new Fl_Group(0, (i * Led::dotSize), (Led::dotSize * 8), Led::dotSize) );
+        ledMatrix->add( new Fl_Group(0, (i * Led::dotSize + 30), (Led::dotSize * 8), Led::dotSize) );
 
         for (int j = 0; j < 8; j++) {
-            ((Fl_Group*) ledMatrix->child(i))->add( new Led((j * Led::dotSize), (i * Led::dotSize), 0) );
+            ((Fl_Group*) ledMatrix->child(i))->add( new Led((j * Led::dotSize), (i * Led::dotSize + 30), 0) );
             ((Fl_Group*) ledMatrix->child(i))->end();
         }
     }
 
     ledMatrix->end();
+
+    // Link childs to the main window
+    win->add(topMenu);
     win->add(ledMatrix);
 
     // Select double buffering and full color

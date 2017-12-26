@@ -25,6 +25,9 @@
 #include <FL/Fl_Toggle_Button.H>
 #include <FL/Fl_PNG_Image.H>
 
+// Other files for this project
+#include "menuEntries.h"
+
 
 
 /* CLASSES */
@@ -48,7 +51,7 @@ public:
     Fl_Double_Window* makeWindow(void);
 
     static const int sizeX = 512;
-    static const int sizeY = 512;
+    static const int sizeY = 542;
 
 private:
     const char* label = "matrixEditor";
