@@ -56,7 +56,7 @@ int Led::handle(int event)
 Fl_Double_Window* Application::makeWindow(void)
 {
     // Create main window
-    Fl_Double_Window* win = new Fl_Double_Window(Led::lineSize, (30 + Led::lineSize), this->label);
+    Fl_Double_Window* win = new Fl_Double_Window(Led::lineSize, (130 + Led::lineSize), this->label);
 
     // Menu Bar at the top of the window
     Fl_Menu_Bar* topMenu = makeMenu();
@@ -67,6 +67,10 @@ Fl_Double_Window* Application::makeWindow(void)
     for (uint8_t i = 0; i < 64; i++) ledMatrix->add( new Led(i, false) );
     ledMatrix->end();
     win->add(ledMatrix);
+
+    // Logs / text output field
+    logs = new LoggerField(0, (Led::lineSize + 30), Led::lineSize, 100);
+    win->add(logs);
 
     // Select double buffering and full color
     Fl::visual(FL_DOUBLE|FL_RGB);

@@ -28,6 +28,13 @@
 
 // Other files for this project
 #include "menuEntries.h"
+#include "loggerField.h"
+
+
+
+/* GLOBAL VARIABLES */
+
+LoggerField* logs;
 
 
 
