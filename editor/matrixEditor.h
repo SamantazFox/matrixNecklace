@@ -16,6 +16,7 @@
 // Standard lobraries
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdint.h>
 #include <cstdlib>
 
 // FLTK libraries
@@ -34,15 +35,18 @@
 
 class Led : public Fl_Button {
 public:
-    Led(int x, int y, bool state);
+    Led(uint8_t index, bool state);
     void invert(void);
     int handle(int event);
 
-    static const u_int8_t dotSize = 64;
+    static const uint16_t dotSize = 48;
+    static const uint16_t lineSize = 384;
+
+    uint8_t index;
 
 private:
-    Fl_Image* led_on = new Fl_PNG_Image("images/led_on.png");
-    Fl_Image* led_off = new Fl_PNG_Image("images/led_off.png");
+    Fl_Image* led_on = new Fl_PNG_Image("images/led_on_48x48.png");
+    Fl_Image* led_off = new Fl_PNG_Image("images/led_off_48x48.png");
 };
 
 
@@ -50,8 +54,8 @@ class Application {
 public:
     Fl_Double_Window* makeWindow(void);
 
-    static const int sizeX = 512;
-    static const int sizeY = 542;
+    static uint16_t sizeX;
+    static uint16_t sizeY;
 
 private:
     const char* label = "matrixEditor";
