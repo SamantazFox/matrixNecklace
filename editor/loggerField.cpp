@@ -13,11 +13,6 @@
 #include "loggerField.h"
 
 
-/* FUNCTIONS */
-
-
-
-
 /* CLASSES METHODS */
 
 LoggerField::LoggerField(uint16_t x, uint16_t y, uint16_t w, uint16_t h) :
@@ -25,6 +20,11 @@ LoggerField::LoggerField(uint16_t x, uint16_t y, uint16_t w, uint16_t h) :
 {
     this->logBuffer = new Fl_Text_Buffer();
     this->buffer(this->logBuffer);
+
+    this->color(fl_rgb_color(0x33));
+    this->textcolor(fl_rgb_color(0xE5));
+    this->textsize(10);
+
     this->writeln("Init Done.");
 }
 
