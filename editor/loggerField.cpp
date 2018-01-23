@@ -2,7 +2,7 @@
  *
  * Logs / text output field's functions
  *
- * Copyright 2017 (C) Taz8du29
+ * Copyright 2018 (C) Taz8du29
  * Refer to LICENSE.md for more infos about copyright
 */
 
@@ -18,7 +18,6 @@
 LoggerField::LoggerField(uint16_t x, uint16_t y, uint16_t w, uint16_t h) :
     Fl_Text_Display(x, y, w, h)
 {
-    this->logBuffer = new Fl_Text_Buffer();
     this->buffer(this->logBuffer);
 
     this->color(fl_rgb_color(0x33));

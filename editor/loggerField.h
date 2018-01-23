@@ -2,7 +2,7 @@
  *
  * Logs / text output field
  *
- * Copyright 2017 (C) Taz8du29
+ * Copyright 2018 (C) Taz8du29
  * Refer to LICENSE.md for more infos about copyright
 */
 
@@ -15,6 +15,12 @@
 
 #include <FL/Fl_Text_Display.H>
 #include <FL/Fl_Text_Buffer.H>
+
+
+
+/* GLOBAL VARIABLES */
+
+Fl_Text_Buffer* logs = new Fl_Text_Buffer();
 
 
 
@@ -31,7 +37,7 @@ public:
     void readBuffer(uint16_t line);
 
 private:
-    Fl_Text_Buffer* logBuffer;
+    Fl_Text_Buffer* logBuffer = logs;
 };
 
 

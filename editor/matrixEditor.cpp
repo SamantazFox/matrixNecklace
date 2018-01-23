@@ -2,7 +2,7 @@
  *
  * Main file for the matrixNecklace editor
  *
- * Copyright 2017 (C) Taz8du29
+ * Copyright 2018 (C) Taz8du29
  * Refer to LICENSE.md for more infos about copyright
 */
 
@@ -69,8 +69,8 @@ Fl_Double_Window* Application::makeWindow(void)
     win->add(ledMatrix);
 
     // Logs / text output field
-    logs = new LoggerField(0, (Led::lineSize + 30), Led::lineSize, 100);
-    win->add(logs);
+    LoggerField* logF = new LoggerField(0, (Led::lineSize + 30), Led::lineSize, 100);
+    win->add(logF);
 
     // Select double buffering and full color
     Fl::visual(FL_DOUBLE|FL_RGB);
