@@ -2,7 +2,7 @@
  *
  * Menu bar items definition and callback functions header
  *
- * Copyright 2017 (C) Taz8du29
+ * Copyright 2018 (C) Taz8du29
  * Refer to LICENSE.md for more infos about copyright
 */
 
@@ -13,10 +13,16 @@
 
 /* DEPENDENCIES */
 
+// FLTK Libraries
 #include <FL/Fl_Menu_Bar.H>
 #include <FL/Fl_Menu_Item.H>
-
 #include <FL/Fl_File_Chooser.H>
+
+
+
+/* GLOBAL VARIABLES */
+
+extern Fl_Text_Buffer* logs;
 
 
 

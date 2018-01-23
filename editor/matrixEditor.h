@@ -2,7 +2,7 @@
  *
  * Main file's header containing definitions and library calls
  *
- * Copyright 2017 (C) Taz8du29
+ * Copyright 2018 (C) Taz8du29
  * Refer to LICENSE.md for more infos about copyright
 */
 
@@ -13,7 +13,7 @@
 
 /* DEPENDENCIES */
 
-// Standard lobraries
+// Standard libraries
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
@@ -27,14 +27,14 @@
 #include <FL/Fl_PNG_Image.H>
 
 // Other files for this project
-#include "menuEntries.h"
 #include "loggerField.h"
+#include "menuEntries.h"
 
 
 
 /* GLOBAL VARIABLES */
 
-LoggerField* logs;
+extern Fl_Text_Buffer* logs;
 
 
 

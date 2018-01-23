@@ -2,7 +2,7 @@
  *
  * Callback function for every item defined under menuEntries.h
  *
- * Copyright 2017 (C) Taz8du29
+ * Copyright 2018 (C) Taz8du29
  * Refer to LICENSE.md for more infos about copyright
 */
 
@@ -19,7 +19,8 @@ void foo(Fl_Widget*, void*) {}
 
 void cb_open(Fl_Widget*, void*) {
     char* path = fl_file_chooser("Select File", "MatrixNecklace sequence file (*.mnl)", ".");
-    printf("%s\n", path);
+    logs->append("Open file: ");
+    logs->append(path);
 }
 
 
