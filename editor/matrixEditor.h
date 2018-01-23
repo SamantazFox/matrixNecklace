@@ -22,12 +22,10 @@
 // FLTK libraries
 #include <FL/Fl.H>
 #include <FL/Fl_Double_Window.H>
-#include <FL/Fl_Group.H>
-#include <FL/Fl_Toggle_Button.H>
-#include <FL/Fl_PNG_Image.H>
 
 // Other files for this project
 #include "loggerField.h"
+#include "matrix.h"
 #include "menuEntries.h"
 
 
@@ -39,23 +37,6 @@ extern Fl_Text_Buffer* logs;
 
 
 /* CLASSES */
-
-class Led : public Fl_Button {
-public:
-    Led(uint8_t index, bool state);
-    void invert(void);
-    int handle(int event);
-
-    static const uint16_t dotSize = 48;
-    static const uint16_t lineSize = 384;
-
-    uint8_t index;
-
-private:
-    Fl_Image* led_on = new Fl_PNG_Image("images/led_on_48x48.png");
-    Fl_Image* led_off = new Fl_PNG_Image("images/led_off_48x48.png");
-};
-
 
 class Application {
 public:
