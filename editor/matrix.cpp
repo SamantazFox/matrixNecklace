@@ -15,12 +15,13 @@
 
 /* CLASS "Led" */
 
-Led::Led(uint8_t index, bool state) : Fl_Button(0, 0, this->dotSize, this->dotSize)
+Led::Led(uint8_t index, bool state) :
+    Fl_Button(0, 0, this->dotSize, this->dotSize)
 {
     this->index = index;
     this->position(
-        (int) (index / 8) * this->dotSize,
-        (int) (index % 8) * this->dotSize + 30
+        (int) (index / 8) * this->dotSize + this->parent()->x(),
+        (int) (index % 8) * this->dotSize + this->parent()->y()
     );
 
     this->box(FL_FRAME_BOX);
@@ -29,6 +30,7 @@ Led::Led(uint8_t index, bool state) : Fl_Button(0, 0, this->dotSize, this->dotSi
     if (state) { this->set(); this->image(led_on); }
     else { this->clear(); this->image(led_off); }
 }
+
 
 void Led::invert(void)
 {
