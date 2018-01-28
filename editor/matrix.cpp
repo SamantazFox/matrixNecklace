@@ -63,8 +63,8 @@ Led::Led(uint8_t index, bool state) :
 {
     this->index = index;
     this->position(
-        (int) (index / 8) * this->dotSize + this->parent()->x(),
-        (int) (index % 8) * this->dotSize + this->parent()->y()
+        (int) (index % 8) * this->dotSize + this->parent()->x(),
+        (int) (index / 8) * this->dotSize + this->parent()->y()
     );
 
     this->box(FL_FRAME_BOX);
