@@ -33,10 +33,17 @@ void Menu::cb_open(Fl_Widget* wdg, void*)
 
 void Menu::cb_save(Fl_Widget* wdg, void*)
 {
-    //Application* app = (Application*) wdg->top_window();
-    Fl_Double_Window* app = (Fl_Double_Window*) wdg->top_window();
-    uint64_t out = Matrix::getData((Matrix*) app->child(0));
-    printf("%lx\n, ", out);
+    // Get a pointer to ledMatrix, and pass it to getData()
+    Matrix* matrix = ((Application*) wdg->window())->ledMatrix;
+    uint8_t* out = Matrix::getData(matrix);
+
+    // Print an hexadecimal value of the returned data
+    printf("Out: 0x");
+    for(int i=0; i < 8; i++) printf("%.2hhx", out[i]);
+    printf("\n");
+
+    // Free the memory block that getData allocated
+    free(out);
 }
 
 
