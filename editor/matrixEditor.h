@@ -38,9 +38,9 @@ extern Fl_Text_Buffer* logs;
 
 /* CLASSES */
 
-class Application {
+class Application : public Fl_Double_Window {
 public:
-    Fl_Double_Window* makeWindow(void);
+    Application(void);
 
     static uint16_t sizeX;
     static uint16_t sizeY;
