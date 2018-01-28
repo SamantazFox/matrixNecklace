@@ -28,6 +28,14 @@ extern Fl_Text_Buffer* logs;
 
 /* CLASSES */
 
+class Matrix : public Fl_Group {
+public:
+    Matrix(uint16_t x, uint16_t y);
+
+    static uint64_t getData(Fl_Group* mtrx);
+};
+
+
 class Led : public Fl_Button {
 public:
     Led(uint8_t index, bool state);
