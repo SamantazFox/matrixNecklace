@@ -18,6 +18,9 @@
 Application::Application(void) :
     Fl_Double_Window(Led::lineSize, (130 + Led::lineSize), this->label)
 {
+    // Add an icon to the top level window
+    this->top_window()->icon((Fl_RGB_Image*) this->ico);
+
     // Menu Bar at the top of the window
     this->topMenu = new Menu(0, 0, 512, 30);
     this->add(topMenu);

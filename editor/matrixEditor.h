@@ -32,6 +32,7 @@ class LoggerField;
 // FLTK libraries
 #include <FL/Fl.H>
 #include <FL/Fl_Double_Window.H>
+#include <FL/Fl_PNG_Image.H>
 #include <FL/Fl_Text_Buffer.H>
 
 
@@ -52,6 +53,7 @@ public:
 
 private:
     const char* label = "matrixEditor";
+    Fl_Image* ico = new Fl_PNG_Image("images/icon_48x48.png");
 };
 
 
