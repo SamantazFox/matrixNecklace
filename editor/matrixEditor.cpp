@@ -15,11 +15,9 @@
 
 /* CLASS "Application" */
 
-Fl_Double_Window* Application::makeWindow(void)
+Application::Application(void) :
+    Fl_Double_Window(Led::lineSize, (130 + Led::lineSize), this->label)
 {
-    // Create main window
-    Fl_Double_Window* win = new Fl_Double_Window(Led::lineSize, (130 + Led::lineSize), this->label);
-
     // Menu Bar at the top of the window
     this->topMenu = new Menu(0, 0, 512, 30);
     this->add(topMenu);
@@ -35,9 +33,8 @@ Fl_Double_Window* Application::makeWindow(void)
     // Select double buffering and full color
     Fl::visual(FL_DOUBLE|FL_RGB);
 
-    // Finish creating window and return object to caller
-    win->end();
-    return win;
+    // Finish creating window
+    this->end();
 }
 
 
@@ -46,11 +43,10 @@ Fl_Double_Window* Application::makeWindow(void)
 
 int main(int argc, char* argv[]) {
     // Create application object
-    Application app;
+    Application* app = new Application();
 
     // Create the main window
-    Fl_Double_Window* window = app.makeWindow();
-    window->show(argc, argv);
+    app->show(argc, argv);
 
     // Run !
     return Fl::run();
