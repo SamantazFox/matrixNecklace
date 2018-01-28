@@ -21,18 +21,16 @@ Fl_Double_Window* Application::makeWindow(void)
     Fl_Double_Window* win = new Fl_Double_Window(Led::lineSize, (130 + Led::lineSize), this->label);
 
     // Menu Bar at the top of the window
-    Fl_Menu_Bar* topMenu = makeMenu();
-    win->add(topMenu);
+    this->topMenu = new Menu(0, 0, 512, 30);
+    this->add(topMenu);
 
-    // Leds are all children of 'ledMatrix'. Their UID defines their position.
-    Fl_Group* ledMatrix = new Fl_Group(0, 30, Led::lineSize, Led::lineSize);
-    for (uint8_t i = 0; i < 64; i++) ledMatrix->add( new Led(i, false) );
-    ledMatrix->end();
-    win->add(ledMatrix);
+    // Matrix is a 8x8 Leds array.
+    this->ledMatrix = new Matrix(0, 30);
+    this->add(ledMatrix);
 
     // Logs / text output field
-    LoggerField* logF = new LoggerField(0, (Led::lineSize + 30), Led::lineSize, 100);
-    win->add(logF);
+    this->logField = new LoggerField(0, (Led::lineSize + 30), Led::lineSize, 100);
+    this->add(logField);
 
     // Select double buffering and full color
     Fl::visual(FL_DOUBLE|FL_RGB);

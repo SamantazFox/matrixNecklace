@@ -13,22 +13,30 @@
 #include "menuEntries.h"
 
 
-/* FUNCTIONS */
+/* CLASS "Menu" */
 
-void foo(Fl_Widget*, void*) {}
+Menu::Menu(uint16_t x, uint16_t y, uint16_t w, uint16_t h) :
+    Fl_Menu_Bar(x, y, w, h)
+{
+    this->menu(__menu);
+}
 
-void cb_open(Fl_Widget*, void*) {
+
+void Menu::foo(Fl_Widget*, void*) {}
+
+void Menu::cb_open(Fl_Widget* wdg, void*)
+{
     char* path = fl_file_chooser("Select File", "MatrixNecklace sequence file (*.mnl)", ".");
     logs->append("Open file: ");
     logs->append(path);
 }
 
-
-Fl_Menu_Bar* makeMenu(void) {
-    Fl_Menu_Bar* topMenu = new Fl_Menu_Bar(0, 0, 512, 30);
-
-    topMenu->menu(__menu);
-    return topMenu;
+void Menu::cb_save(Fl_Widget* wdg, void*)
+{
+    //Application* app = (Application*) wdg->top_window();
+    Fl_Double_Window* app = (Fl_Double_Window*) wdg->top_window();
+    uint64_t out = Matrix::getData((Matrix*) app->child(0));
+    printf("%lx\n, ", out);
 }
 
 

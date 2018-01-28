@@ -13,6 +13,20 @@
 #include "matrix.h"
 
 
+/* CLASS "Matrix" */
+
+Matrix::Matrix(uint16_t x, uint16_t y) :
+    Fl_Group(x, y, Led::lineSize, Led::lineSize)
+{
+    // 'Led' elements are all children of 'Matrix'
+    // Their UID defines their position
+    for (uint8_t i = 0; i < 64; i++) {
+        this->add( new Led(i, false) );
+    }
+}
+
+
+
 /* CLASS "Led" */
 
 Led::Led(uint8_t index, bool state) :

@@ -26,29 +26,37 @@ extern Fl_Text_Buffer* logs;
 
 
 
-/* FUNCTIONS */
+/* CLASS "Menu" */
 
-void foo(Fl_Widget*, void*);
+class Menu : public Fl_Menu_Bar {
+public:
+    Menu(uint16_t x, uint16_t y, uint16_t w, uint16_t h);
 
-void cb_open(Fl_Widget*, void*);
+    // Placeholder callback
+    static void foo(Fl_Widget*, void*);
+
+    // Callbacks for the different menu items
+    static void cb_open(Fl_Widget* wdg, void*);
+    static void cb_save(Fl_Widget* wdg, void*);
+};
 
 
 
-/* OBJECTS */
+/* MENU ITEMS TREE */
 
 const Fl_Menu_Item __menu[] = {
     {"&File", 0, 0, 0, FL_SUBMENU},
-        {"&New",        FL_CTRL+'n',          foo,     0},
-        {"&Open",       FL_CTRL+'o',          cb_open, 0, FL_MENU_DIVIDER},
-        {"&Save",       FL_CTRL+'s',          cb_open, 0},
-        {"Save &As   ", FL_CTRL+FL_SHIFT+'s', cb_open, 0, FL_MENU_DIVIDER},
-        {"&Quit",       FL_CTRL+'q',          foo,     0},
+        {"&New",        FL_CTRL+'n',          Menu::foo,     0},
+        {"&Open",       FL_CTRL+'o',          Menu::cb_open, 0, FL_MENU_DIVIDER},
+        {"&Save",       FL_CTRL+'s',          Menu::cb_save, 0},
+        {"Save &As   ", FL_CTRL+FL_SHIFT+'s', Menu::cb_save, 0, FL_MENU_DIVIDER},
+        {"&Quit",       FL_CTRL+'q',          Menu::foo,     0},
         {0},
     {"&Help", 0, 0, 0, FL_SUBMENU},
-        {"Sho&w Help",            FL_F+1, foo, 0},
-        {"&FAQ",                  0,        foo, 0, FL_MENU_DIVIDER},
-        {"View &License",         0,        foo, 0, FL_MENU_DIVIDER},
-        {"&About matrixNecklace", 0,        foo, 0},
+        {"Sho&w Help",            FL_F+1, Menu::foo, 0},
+        {"&FAQ",                  0,      Menu::foo, 0, FL_MENU_DIVIDER},
+        {"View &License",         0,      Menu::foo, 0, FL_MENU_DIVIDER},
+        {"&About matrixNecklace", 0,      Menu::foo, 0},
         {0}
 };
 
