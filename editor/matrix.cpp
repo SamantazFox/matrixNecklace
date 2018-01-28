@@ -26,6 +26,35 @@ Matrix::Matrix(uint16_t x, uint16_t y) :
 }
 
 
+uint64_t Matrix::getData(Fl_Group* mtrx)
+{
+    // Initialize an out buffer array of 8x8 bits
+    uint64_t out;
+
+    Led* child;
+    uint8_t idx;
+    bool tmp;
+
+    // Travel through every 'Led' in the array
+    for (uint8_t i = 0; i < 64; i++) {
+        child = (Led*) mtrx->child(i);
+        idx = child->index;
+        tmp = child->value();
+
+        // Fill the output buffer with chikdren states
+        // Each line of the matrix is stored in an uint8_t where Led at position
+        // y = 0 being the LSB and led at position x = 7 is the MSB.
+        //out[(int) (idx / 8)] |= (tmp & 0x1) << (idx % 8);
+        if (idx < 64)
+            out |= (tmp & 0x1ULL) << (idx);
+        else
+            return 0;
+    }
+
+    return out;
+}
+
+
 
 /* CLASS "Led" */
 
