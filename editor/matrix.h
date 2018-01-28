@@ -32,7 +32,7 @@ class Matrix : public Fl_Group {
 public:
     Matrix(uint16_t x, uint16_t y);
 
-    static uint64_t getData(Fl_Group* mtrx);
+    static uint8_t* getData(Matrix* mtrx);
 };
 
 

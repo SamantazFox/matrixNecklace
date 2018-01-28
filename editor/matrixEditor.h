@@ -11,6 +11,16 @@
 #define _MATRIXEDITOR_H_
 
 
+/* CLASSES */
+
+class Application;
+class Menu;
+class Matrix;
+class Led;
+class LoggerField;
+
+
+
 /* DEPENDENCIES */
 
 // Standard libraries
@@ -22,21 +32,11 @@
 // FLTK libraries
 #include <FL/Fl.H>
 #include <FL/Fl_Double_Window.H>
-
-// Other files for this project
-#include "loggerField.h"
-#include "matrix.h"
-#include "menuEntries.h"
+#include <FL/Fl_Text_Buffer.H>
 
 
 
-/* GLOBAL VARIABLES */
-
-extern Fl_Text_Buffer* logs;
-
-
-
-/* CLASSES */
+/* CLASS "Application" */
 
 class Application : public Fl_Double_Window {
 public:
@@ -53,6 +53,14 @@ public:
 private:
     const char* label = "matrixEditor";
 };
+
+
+
+/* OTHER FILES FOR THIS PROJECT */
+
+#include "loggerField.h"
+#include "matrix.h"
+#include "menuEntries.h"
 
 
 
