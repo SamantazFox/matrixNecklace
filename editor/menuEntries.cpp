@@ -28,9 +28,23 @@ Menu::Menu(uint16_t x, uint16_t y, uint16_t w, uint16_t h) :
     this->menu(__menu);
 }
 
+Application* Menu::mainWindow(Fl_Widget* wdg)
+{
+    return (Application*) wdg->window();
+}
 
+
+/* CLASS "Menu" CALLBACKS" */
+
+/*
+ * Placeholder callback
+*/
 void Menu::foo(Fl_Widget*, void*) {}
 
+
+/*
+ * File operation (open, save and export) callbacks
+*/
 void Menu::cb_open(Fl_Widget* wdg, void*)
 {
     char* path = fl_file_chooser("Select File", "MatrixNecklace sequence file (*.mnl)", ".");
@@ -38,10 +52,10 @@ void Menu::cb_open(Fl_Widget* wdg, void*)
     logs->append(path);
 }
 
-void Menu::cb_save(Fl_Widget* wdg, void*)
+void Menu::cb_save(Fl_Widget* wdg, void* as)
 {
     // Get a pointer to ledMatrix, and pass it to getData()
-    Matrix* matrix = ((Application*) wdg->window())->ledMatrix;
+    Matrix* matrix = Menu::mainWindow(wdg)->ledMatrix;
     uint8_t* out = Matrix::getData(matrix);
 
     // Print an hexadecimal value of the returned data
@@ -53,6 +67,30 @@ void Menu::cb_save(Fl_Widget* wdg, void*)
     free(out);
 }
 
+void Menu::cb_export(Fl_Widget* wdg, void* as) {}
+
+
+/*
+ * Edit menu callbacks
+*/
+void Menu::cb_undo(Fl_Widget* wdg, void*) {}
+void Menu::cb_redo(Fl_Widget* wdg, void*) {}
+void Menu::cb_rand(Fl_Widget* wdg, void*) {}
+
+
+/*
+ * Help menu callbacks
+*/
+void Menu::cb_help(Fl_Widget* wdg, void*) {}
+void Menu::cb_faq(Fl_Widget* wdg, void*) {}
+void Menu::cb_license(Fl_Widget* wdg, void*) {}
+void Menu::cb_about(Fl_Widget* wdg, void*) {}
+
+
+/*
+ * Miscellanous callbacks
+*/
+void Menu::cb_quit(Fl_Widget* wdg, void*) {}
 
 
 #endif  /* !_MENUENTRIES_CPP_ */
