@@ -18,6 +18,13 @@
 Menu::Menu(uint16_t x, uint16_t y, uint16_t w, uint16_t h) :
     Fl_Menu_Bar(x, y, w, h)
 {
+    this->box(FL_FLAT_BOX);
+    this->color(fl_rgb_color(0x55));
+
+    this->textcolor(fl_rgb_color(0xE5));
+    this->textfont(FL_COURIER);
+    this->textsize(11);
+
     this->menu(__menu);
 }
 
