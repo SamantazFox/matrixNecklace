@@ -60,9 +60,23 @@ void Menu::cb_save(Fl_Widget* wdg, void* as)
     uint8_t* out = Matrix::getData(matrix);
 
     // Print an hexadecimal value of the returned data
-    printf("Out: 0x");
-    for(int i=0; i < 8; i++) printf("%.2hhx", out[i]);
-    printf("\n");
+    uint8_t nib;
+    unsigned char c[3];
+
+    logs->append("Save: 0x");
+    for(uint8_t i = 0; i < 8; i++) {
+        // First 4-bits nibble
+        nib = (out[i] & 0x0F);
+        c[0] = (nib<10) ? (nib+48) : ( (nib<16) ? (nib+55) : '0');
+
+        // Second 4-bits nibble
+        nib = ((out[i] >> 4) & 0x0F);
+        c[1] = (nib<10) ? (nib+48) : ( (nib<16) ? (nib+55) : '0');
+
+        // Write to logs
+        logs->append( (const char*) c );
+    }
+    logs->append("\n");
 
     // Free the memory block that getData allocated
     free(out);
