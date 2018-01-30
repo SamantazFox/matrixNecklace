@@ -19,9 +19,10 @@ Menu::Menu(uint16_t x, uint16_t y, uint16_t w, uint16_t h) :
     Fl_Menu_Bar(x, y, w, h)
 {
     this->box(FL_FLAT_BOX);
-    this->color(fl_rgb_color(0x55));
+    this->color(fl_rgb_color(BG_COLOR));
+    this->selection_color(fl_rgb_color(SELECT_COLOR));
 
-    this->textcolor(fl_rgb_color(0xE5));
+    this->textcolor(fl_rgb_color(TEXT_COLOR));
     this->textfont(FL_COURIER);
     this->textsize(11);
 
