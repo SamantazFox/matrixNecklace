@@ -11,6 +11,14 @@
 #define _MATRIXEDITOR_H_
 
 
+/* CONSTANTS */
+
+#define BG_COLOR 0x44
+#define TEXT_COLOR 0xE5
+#define SELECT_COLOR 0x95
+
+
+
 /* CLASSES */
 
 class Application;

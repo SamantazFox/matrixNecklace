@@ -19,37 +19,19 @@ LoggerField::LoggerField(uint16_t x, uint16_t y, uint16_t w, uint16_t h) :
     Fl_Text_Display(x, y, w, h)
 {
     this->box(FL_NO_BOX);
-    this->color(fl_rgb_color(0x33));
-    this->textcolor(fl_rgb_color(0xE5));
+    this->color(fl_rgb_color(BG_COLOR));
+    this->selection_color(fl_rgb_color(SELECT_COLOR));
+
+    this->textcolor(fl_rgb_color(TEXT_COLOR));
+    this->textfont(FL_SCREEN);
     this->textsize(10);
 
     this->buffer(this->logBuffer);
-    this->writeln("Init Done.");
+    this->logBuffer->append("Init Done\n");
 }
 
 
-void LoggerField::write(const char str[])
-{
-    this->logBuffer->append(str);
-}
-
-void LoggerField::writeln(const char str[])
-{
-    this->logBuffer->append(str);
-    this->logBuffer->append("\n");
-}
-
-
-void LoggerField::clearBuffer(void)
-{
-    return;
-}
-
-void LoggerField::readBuffer(uint16_t line)
-{
-    return;
-}
-
+void LoggerField::clearBuffer(void) {}
 
 
 #endif  /* !_LOGGERFIELD_CPP_ */
