@@ -47,6 +47,7 @@ public:
     static void cb_undo(Fl_Widget* wdg, void*);
     static void cb_redo(Fl_Widget* wdg, void*);
     static void cb_rand(Fl_Widget* wdg, void*);
+    static void cb_clear(Fl_Widget* wdg, void*);
 
     // Help menu callbacks
     static void cb_help(Fl_Widget* wdg, void*);
@@ -55,6 +56,7 @@ public:
     static void cb_about(Fl_Widget* wdg, void*);
 
     // Miscellanous callbacks
+    static void cb_prefs(Fl_Widget* wdg, void*);
     static void cb_quit(Fl_Widget* wdg, void*);
 
 private:
@@ -76,9 +78,11 @@ const Fl_Menu_Item __menu[] = {
         {"&Quit",         FL_CTRL+'q',          Menu::cb_quit,   0},
         {0},
     {"&Edit", FL_ALT+'e', 0, 0, FL_SUBMENU},
-        {"&Undo",      FL_CTRL+'z', Menu::cb_undo, 0},
-        {"Re&do",      FL_CTRL+'y', Menu::cb_redo, 0, FL_MENU_DIVIDER},
-        {"Randomi&ze", FL_CTRL+'r', Menu::cb_rand, 0},
+        {"&Undo",          FL_CTRL+'z',          Menu::cb_undo,  0},
+        {"Re&do",          FL_CTRL+'y',          Menu::cb_redo,  0, FL_MENU_DIVIDER},
+        {"Randomi&ze",     FL_CTRL+'r',          Menu::cb_rand,  0},
+        {"&Clear",         FL_Delete,            Menu::cb_clear, 0, FL_MENU_DIVIDER},
+        {"&Preferences  ", FL_CTRL+FL_SHIFT+'p', Menu::cb_prefs, 0},
         {0},
     {"&Help", FL_ALT+'h', 0, 0, FL_SUBMENU},
         {"Sho&w Help",            FL_F+1, Menu::cb_help,    0},
