@@ -84,6 +84,13 @@ void Menu::cb_rand(Fl_Widget* wdg, void*)
     Matrix::setData(matrix, randomized);
 }
 
+void Menu::cb_clear(Fl_Widget* wdg, void*)
+{
+    // Get pointer to matrix, and write 0x0 to it
+    Matrix* matrix = Menu::mainWindow(wdg)->ledMatrix;
+    Matrix::setData(matrix, 0x0ul);
+}
+
 
 /*
  * Help menu callbacks
@@ -97,6 +104,7 @@ void Menu::cb_about(Fl_Widget* wdg, void*) {}
 /*
  * Miscellanous callbacks
 */
+void Menu::cb_prefs(Fl_Widget* wdg, void*) {}
 void Menu::cb_quit(Fl_Widget* wdg, void*) {}
 
 
