@@ -39,7 +39,7 @@ public:
 class Led : public Fl_Button {
 public:
     Led(uint8_t index, bool state);
-    void invert(void);
+    inline void write(bool state);
     int handle(int event);
 
     static const uint16_t dotSize = 48;
