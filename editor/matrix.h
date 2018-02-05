@@ -11,6 +11,20 @@
 #define _MATRIX_H_
 
 
+/* ENUMS */
+
+enum LedStates {
+    ON  = true,
+    OFF = false
+};
+
+enum DbgModes {
+    RD = 0,
+    WR = 1
+};
+
+
+
 /* DEPENDENCIES */
 
 // FLTK Libraries
