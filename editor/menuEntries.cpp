@@ -78,10 +78,8 @@ void Menu::cb_rand(Fl_Widget* wdg, void*)
     // Randomize !
     std::random_device seed;
     std::mt19937_64 gen(seed());
-    std::uniform_int_distribution<uint64_t> dist(0, 0xFFFFFFFFFFFFFFFF);
-
-    randomized = (uint64_t) dist(gen);
-
+    randomized = (uint64_t) gen();
+    
     // Write to matrix
     Matrix::setData(matrix, randomized);
 }
