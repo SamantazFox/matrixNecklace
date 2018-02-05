@@ -46,7 +46,11 @@ class Matrix : public Fl_Group {
 public:
     Matrix(uint16_t x, uint16_t y);
 
-    static uint8_t* getData(Matrix* mtrx);
+    static uint64_t getData(Matrix* mtrx);
+    static void setData(Matrix* mtrx, uint64_t data);
+
+private:
+    static void debugIO(DbgModes mode, uint64_t data);
 };
 
 

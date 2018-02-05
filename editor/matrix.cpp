@@ -26,38 +26,81 @@ Matrix::Matrix(uint16_t x, uint16_t y) :
 }
 
 
-uint8_t* Matrix::getData(Matrix* mtrx)
+uint64_t Matrix::getData(Matrix* mtrx)
 {
-    // Initialize an out buffer array of 8x8 bits
-    uint8_t* out = (uint8_t*) malloc(8);
-
-    // Define local variables
+    // Define local variables and initialize a 64-bits output buffer
+    Led* children[64] = {0};
     Led* child;
-    uint8_t idx, x, y;
-    bool tmp;
+    uint64_t out;
 
-    // Travel through every 'Led' in the array
-    for (uint8_t i = 0; i < 64; i++) {
-        // Get child and it's ID
-        child = (Led*) ((Fl_Group*) mtrx)->child(i);
-        idx = child->index;
-
-        // Get child value
-        tmp = child->value();
-
-        // Calculate x and y pos from Led's index
-        x = (uint8_t) idx % 8;
-        y = (uint8_t) idx / 8;
-
-        // Fill the output buffer with chikdren states
-        // Each line of the matrix is stored in an uint8_t where :
-        //  - Led at position x = 0 is the LSB
-        //  - Led at position x = 7 is the MSB.
-        if (tmp) out[y] |= (1<<x);
-        else     out[y] &= ~(1<<x);
+    // Make an index-ordered array of matrix' children
+    for (uint8_t c = 0; c < 64; c++) {
+        child = (Led*) ((Fl_Group*) mtrx)->child(c);
+        children[child->index] = child;
     }
 
+    // Travel through every 'Led' in the array
+    // and fill the output buffer with chikdren states
+    for (int i = 63; i >= 0; i--) {
+        if (children[i]->value())
+            out |= (1L<<i);
+        else
+            out &= ~(1L<<i);
+    }
+
+    // Verbose to logs and return
+    Matrix::debugIO(RD, out);
     return out;
+}
+
+void Matrix::setData(Matrix* mtrx, uint64_t data)
+{
+    // Define local variables
+    Led* children[64] = {0};
+    Led* child;
+
+    // Verbose to logs
+    Matrix::debugIO(WR, data);
+
+    // Make an index-ordered array of matrix' children
+    for (uint8_t c = 0; c < 64; c++) {
+        child = (Led*) ((Fl_Group*) mtrx)->child(c);
+        children[child->index] = child;
+    }
+
+    // Set the child state from data
+    for (uint8_t i = 0; i < 64; i++) {
+        children[i]->write( (bool) (data & 0x1) );
+        data >>= 1;
+    }
+
+}
+
+
+void Matrix::debugIO(DbgModes mode, uint64_t data)
+{
+    // Initialize local variables
+    uint8_t nib;
+    unsigned char c[17] = {0};
+
+    // change text depending on mode
+    if (mode == WR)
+        logs->append("Write: 0x");
+    else
+        logs->append("Save:  0x");
+
+    // Loop for data, 4-bits at a time
+    for(uint8_t i = 0; i < 16; i++) {
+        nib = (uint8_t) (data & 0x0F);
+        c[i] = (nib<10) ? (nib+48) : ( (nib<16) ? (nib+55) : '0');
+
+        // Shift data for next nibble
+        data >>= 4;
+    }
+
+    // Write data and end by newline
+    logs->append( (const char*) c );
+    logs->append("\n");
 }
 
 
