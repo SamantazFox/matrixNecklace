@@ -13,6 +13,9 @@
 
 /* DEPENDENCIES */
 
+// Standard libraries
+#include <random>
+
 // FLTK Libraries
 #include <FL/Fl_Menu_Bar.H>
 #include <FL/Fl_Menu_Item.H>

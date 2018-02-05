@@ -68,7 +68,23 @@ void Menu::cb_export(Fl_Widget* wdg, void* as) {}
 */
 void Menu::cb_undo(Fl_Widget* wdg, void*) {}
 void Menu::cb_redo(Fl_Widget* wdg, void*) {}
-void Menu::cb_rand(Fl_Widget* wdg, void*) {}
+
+void Menu::cb_rand(Fl_Widget* wdg, void*)
+{
+    // Initialize local variables
+    uint64_t randomized;
+    Matrix* matrix = Menu::mainWindow(wdg)->ledMatrix;
+
+    // Randomize !
+    std::random_device seed;
+    std::mt19937_64 gen(seed());
+    std::uniform_int_distribution<uint64_t> dist(0, 0xFFFFFFFFFFFFFFFF);
+
+    randomized = (uint64_t) dist(gen);
+
+    // Write to matrix
+    Matrix::setData(matrix, randomized);
+}
 
 
 /*
