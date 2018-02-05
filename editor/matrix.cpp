@@ -81,10 +81,10 @@ Led::Led(uint8_t index, bool state) :
 }
 
 
-void Led::invert(void)
+void Led::write(bool state)
 {
-    if (this->value()) { this->clear(); this->image(led_off); }
-    else { this->set(); this->image(led_on); }
+    if (state) { this->set();   this->image(led_on);  }
+    else       { this->clear(); this->image(led_off); }
 
     this->redraw();
 }
@@ -93,7 +93,10 @@ int Led::handle(int event)
 {
     switch (event) {
         case FL_PUSH:
-            if (Fl::event_button() == FL_LEFT_MOUSE) { this->invert(); return 1; }
+            if (Fl::event_button() == FL_LEFT_MOUSE) {
+                this->write( !this->value() );
+                return 1;
+            }
             else { return 0; }
         default:
             return Fl_Widget::handle(event);
