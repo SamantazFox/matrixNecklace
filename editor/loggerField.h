@@ -29,11 +29,6 @@ Fl_Text_Buffer* logs = new Fl_Text_Buffer();
 class LoggerField : public Fl_Text_Display {
 public:
     LoggerField(uint16_t x, uint16_t y, uint16_t w, uint16_t h);
-
-    void write(const char str[]);
-    void writeln(const char str[]);
-
-    void clearBuffer(void);
     void readBuffer(uint16_t line);
 
 private:
