@@ -51,9 +51,6 @@ class Application : public Fl_Double_Window {
 public:
     Application(void);
 
-    static uint16_t sizeX;
-    static uint16_t sizeY;
-
     // Children
     Menu* topMenu;
     Matrix* ledMatrix;
