@@ -29,7 +29,7 @@ Fl_Text_Buffer* logs = new Fl_Text_Buffer();
 class LoggerField : public Fl_Text_Display {
 public:
     LoggerField(uint16_t x, uint16_t y, uint16_t w, uint16_t h);
-    void readBuffer(uint16_t line);
+    void clearBuffer(void);
 
 private:
     Fl_Text_Buffer* logBuffer = logs;
