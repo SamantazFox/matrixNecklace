@@ -18,6 +18,9 @@
 Matrix::Matrix(uint16_t x, uint16_t y) :
     Fl_Group(x, y, Led::lineSize, Led::lineSize)
 {
+    // Set the matrix as non-resizable, because Leds can't handle it
+    this->resizable(0);
+
     // 'Led' elements are all children of 'Matrix'
     // Their UID defines their position
     for (uint8_t i = 0; i < this->ledCount; i++) {

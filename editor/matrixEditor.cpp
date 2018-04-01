@@ -16,22 +16,56 @@
 /* CLASS "Application" */
 
 Application::Application(void) :
-    Fl_Double_Window(Led::lineSize, (130 + Led::lineSize), this->label)
+    Fl_Double_Window(0, 0, this->label)
 {
     // Add an icon to the top level window
     this->top_window()->icon((Fl_RGB_Image*) this->ico);
 
+    // Set elements' base sizes
+    uint16_t topMenu_h = 30;
+    uint16_t logs_h = 100;
+
+    // In order to properly draw elements, we should get track of where we are
+    Pos offset {0, 0};
+
+    // set the final size of the window
+    this->size(
+        Led::lineSize,
+        topMenu_h + Led::lineSize + logs_h
+    );
+
     // Menu Bar at the top of the window
-    this->topMenu = new Menu(0, 0, 512, 30);
+    this->topMenu = new Menu(offset.x, offset.y, this->w(), topMenu_h);
     this->add(topMenu);
+    offset.y += topMenu_h;
 
-    // Matrix is a 8x8 Leds array.
-    this->ledMatrix = new Matrix(0, 30);
-    this->add(ledMatrix);
+    // Resizing frame. This Tile element will include all the window's children,
+    // minus the titlebar, which souldn't be resizeable
+    Fl_Tile* frame = new Fl_Tile(offset.x, offset.y, this->w(), this->h() - topMenu_h);
 
-    // Logs / text output field
-    this->logField = new LoggerField(0, (Led::lineSize + 30), Led::lineSize, 100);
-    this->add(logField);
+    // Led Matrix (8x8 Leds array)
+    this->ledMatrix = new Matrix(offset.x, offset.y);
+    frame->add(ledMatrix);
+
+    offset.y += Led::lineSize;
+
+    // In order to make the logs/text output field resizable, we have to encapsulate
+    // it in a "Tile" element. Then, we ad everything to the frame and window
+    Fl_Tile* log_box = new Fl_Tile(offset.x, offset.y, this->w(), logs_h);
+    log_box->add( new LoggerField(offset.x, offset.y, this->w(), logs_h) );
+    log_box->end();
+
+    this->logField = (LoggerField*) log_box->child(0);
+    frame->add(logField);
+
+    /* Define the Fl_Tile 'frame' as the rezising box
+     * Then, define minimum and maximum size for the window
+     * Minimum is the size we computed above
+     * Maximum is set to height = 0 (infinite) and width restrained to actual size
+    */
+    frame->end();
+    this->resizable(frame);
+    this->size_range(this->w(), this->h(), this->w(), 0);
 
     // Select double buffering and full color
     Fl::visual(FL_DOUBLE|FL_RGB);
