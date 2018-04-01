@@ -22,6 +22,8 @@
 // FLTK libraries
 #include <FL/Fl.H>
 #include <FL/Fl_Double_Window.H>
+#include <FL/Fl_Group.H>
+#include <FL/Fl_Tile.H>
 #include <FL/Fl_PNG_Image.H>
 #include <FL/Fl_Text_Buffer.H>
 
@@ -32,6 +34,15 @@
 #define BG_COLOR 0x44
 #define TEXT_COLOR 0xE5
 #define SELECT_COLOR 0x95
+
+
+
+/* DATA STRUCTURES */
+
+struct Pos {
+    uint16_t x;
+    uint16_t y;
+};
 
 
 
