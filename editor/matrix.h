@@ -49,6 +49,8 @@ public:
     static uint64_t getData(Matrix* mtrx);
     static void setData(Matrix* mtrx, uint64_t data);
 
+    static const uint8_t ledCount = 64;
+
 private:
     static void debugIO(DbgModes mode, uint64_t data);
 };

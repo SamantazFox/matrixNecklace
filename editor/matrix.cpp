@@ -20,28 +20,30 @@ Matrix::Matrix(uint16_t x, uint16_t y) :
 {
     // 'Led' elements are all children of 'Matrix'
     // Their UID defines their position
-    for (uint8_t i = 0; i < 64; i++) {
+    for (uint8_t i = 0; i < this->ledCount; i++) {
         this->add( new Led(i, false) );
     }
+
+    this->end();
 }
 
 
 uint64_t Matrix::getData(Matrix* mtrx)
 {
     // Define local variables and initialize a 64-bits output buffer
-    Led* children[64] = {0};
+    Led* children[mtrx->ledCount] = {0};
     Led* child;
     uint64_t out;
 
     // Make an index-ordered array of matrix' children
-    for (uint8_t c = 0; c < 64; c++) {
+    for (uint8_t c = 0; c < mtrx->ledCount; c++) {
         child = (Led*) ((Fl_Group*) mtrx)->child(c);
         children[child->index] = child;
     }
 
     // Travel through every 'Led' in the array
     // and fill the output buffer with chikdren states
-    for (int i = 63; i >= 0; i--) {
+    for (int i = mtrx->ledCount - 1; i >= 0; i--) {
         if (children[i]->value())
             out |= (1L<<i);
         else
@@ -56,24 +58,23 @@ uint64_t Matrix::getData(Matrix* mtrx)
 void Matrix::setData(Matrix* mtrx, uint64_t data)
 {
     // Define local variables
-    Led* children[64] = {0};
+    Led* children[mtrx->ledCount] = {0};
     Led* child;
 
     // Verbose to logs
     Matrix::debugIO(WR, data);
 
     // Make an index-ordered array of matrix' children
-    for (uint8_t c = 0; c < 64; c++) {
+    for (uint8_t c = 0; c < mtrx->ledCount; c++) {
         child = (Led*) ((Fl_Group*) mtrx)->child(c);
         children[child->index] = child;
     }
 
     // Set the child state from data
-    for (uint8_t i = 0; i < 64; i++) {
+    for (uint8_t i = 0; i < mtrx->ledCount; i++) {
         children[i]->write( (bool) (data & 0x1) );
         data >>= 1;
     }
-
 }
 
 
@@ -144,6 +145,7 @@ int Led::handle(int event)
         default:
             return Fl_Widget::handle(event);
     }
+    return 0;
 }
 
 
