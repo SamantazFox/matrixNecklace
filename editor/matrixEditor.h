@@ -29,20 +29,25 @@
 
 
 
-/* CONSTANTS */
-
-#define BG_COLOR 0x44
-#define TEXT_COLOR 0xE5
-#define SELECT_COLOR 0x95
-
-
-
 /* DATA STRUCTURES */
 
 struct Pos {
     uint16_t x;
     uint16_t y;
 };
+
+struct Colors {
+    uint8_t bg;
+    uint8_t text;
+    uint8_t select;
+};
+
+
+
+/* CONSTANTS */
+
+const Colors MenuColors { 0x45, 0xE5, 0x95 };
+const Colors LogsColors { 0x45, 0xE5, 0x95 };
 
 
 

@@ -19,10 +19,10 @@ LoggerField::LoggerField(uint16_t x, uint16_t y, uint16_t w, uint16_t h) :
     Fl_Text_Display(x, y, w, h)
 {
     this->box(FL_NO_BOX);
-    this->color(fl_rgb_color(BG_COLOR));
-    this->selection_color(fl_rgb_color(SELECT_COLOR));
+    this->color(fl_rgb_color(LogsColors.bg));
+    this->selection_color(fl_rgb_color(LogsColors.select));
 
-    this->textcolor(fl_rgb_color(TEXT_COLOR));
+    this->textcolor(fl_rgb_color(LogsColors.text));
     this->textfont(FL_SCREEN);
     this->textsize(10);
 
