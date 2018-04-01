@@ -11,6 +11,22 @@
 #define _MATRIXEDITOR_H_
 
 
+/* DEPENDENCIES */
+
+// Standard libraries
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdint.h>
+#include <cstdlib>
+
+// FLTK libraries
+#include <FL/Fl.H>
+#include <FL/Fl_Double_Window.H>
+#include <FL/Fl_PNG_Image.H>
+#include <FL/Fl_Text_Buffer.H>
+
+
+
 /* CONSTANTS */
 
 #define BG_COLOR 0x44
@@ -26,22 +42,6 @@ class Menu;
 class Matrix;
 class Led;
 class LoggerField;
-
-
-
-/* DEPENDENCIES */
-
-// Standard libraries
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdint.h>
-#include <cstdlib>
-
-// FLTK libraries
-#include <FL/Fl.H>
-#include <FL/Fl_Double_Window.H>
-#include <FL/Fl_PNG_Image.H>
-#include <FL/Fl_Text_Buffer.H>
 
 
 
