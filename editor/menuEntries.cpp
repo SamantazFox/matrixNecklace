@@ -23,7 +23,8 @@ Menu::Menu(uint16_t x, uint16_t y, uint16_t w, uint16_t h) :
     this->selection_color(fl_rgb_color(MenuColors.select));
 
     this->textcolor(fl_rgb_color(MenuColors.text));
-    this->textfont(FL_COURIER);
+    // this->textfont(FL_COURIER);
+    this->textfont(FL_SCREEN);
     this->textsize(11);
 
     this->menu(__menu);
@@ -79,7 +80,7 @@ void Menu::cb_rand(Fl_Widget* wdg, void*)
     std::random_device seed;
     std::mt19937_64 gen(seed());
     randomized = (uint64_t) gen();
-    
+
     // Write to matrix
     Matrix::setData(matrix, randomized);
 }
