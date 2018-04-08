@@ -59,12 +59,15 @@ Application::Application(void) :
     this->logField = (LoggerField*) log_box->child(0);
     frame->add(logField);
 
+    // Close the frame object, and add it to the window.
+    frame->end();
+    this->add(frame);
+
     /* Define the Fl_Tile 'frame' as the rezising box
      * Then, define minimum and maximum size for the window
      * Minimum is the size we computed above
      * Maximum is set to height = 0 (infinite) and width restrained to actual size
     */
-    frame->end();
     this->resizable(frame);
     this->size_range(this->w(), this->h(), this->w(), 0);
 
