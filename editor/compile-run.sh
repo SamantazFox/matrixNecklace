@@ -43,7 +43,7 @@ fltk_tar=$fltk_dir-source.tar.gz
 
 # Download tarball
 if ! [[ -e $fltk_tar ]]; then
-    wget http://fltk.org/pub/fltk/$fltk_vers/$ftlk_tar;
+    wget http://fltk.org/pub/fltk/$fltk_vers/$fltk_tar;
 fi
 
 if ! [[ -d $fltk_dir ]]; then
