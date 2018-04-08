@@ -41,7 +41,8 @@ Application::Application(void) :
 
     // Resizing frame. This Tile element will include all the window's children,
     // minus the titlebar, which souldn't be resizeable
-    Fl_Tile* frame = new Fl_Tile(offset.x, offset.y, this->w(), this->h() - topMenu_h);
+    Fl_Tile* frame = new Fl_Tile(offset.x, offset.y, this->w(), this->h() - offset.y);
+
 
     // Led Matrix (8x8 Leds array)
     this->ledMatrix = new Matrix(offset.x, offset.y);
