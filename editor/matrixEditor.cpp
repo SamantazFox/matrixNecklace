@@ -51,12 +51,8 @@ Application::Application(void) :
     offset.y += Led::lineSize;
 
     // In order to make the logs/text output field resizable, we have to encapsulate
-    // it in a "Tile" element. Then, we ad everything to the frame and window
-    Fl_Tile* log_box = new Fl_Tile(offset.x, offset.y, this->w(), logs_h);
-    log_box->add( new LoggerField(offset.x, offset.y, this->w(), logs_h) );
-    log_box->end();
-
-    this->logField = (LoggerField*) log_box->child(0);
+    // it in the 'frame' ("Tile" element define above)
+    this->logField = new LoggerField(offset.x, offset.y, this->w(), logs_h);
     frame->add(logField);
 
     // Close the frame object, and add it to the window.
