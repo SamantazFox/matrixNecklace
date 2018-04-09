@@ -55,6 +55,7 @@ if ! [[ -d $fltk_dir/build ]]; then
     cd $fltk_dir;
     ./configure --prefix=`pwd`/build --exec-prefix=`pwd`/build;
     make install;
+    cd ..;
 fi
 
 
