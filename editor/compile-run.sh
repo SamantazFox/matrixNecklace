@@ -24,9 +24,11 @@ fltk_dir=fltk-1.3.4-2
 # Default behaviors
 run_it=true
 do_trace=false
+debug=false
 
 for arg in "$@"; do
     case $arg in
+        -d) debug=true;;
         -r) run_it=false;;
         -t) do_trace=true;;
     esac
@@ -53,7 +55,17 @@ fi
 if ! [[ -d $fltk_dir/build ]]; then
     mkdir $fltk_dir/build;
     cd $fltk_dir;
-    ./configure --prefix=`pwd`/build --exec-prefix=`pwd`/build;
+
+    # Configure for local install
+    ./configure --prefix=`pwd`/build --exec-prefix=`pwd`/build --enable-debug;
+    make;
+
+    # Generate documentation
+    cd documentation;
+    make html;
+    cd ..;
+
+    # Install the library under build/ and leave
     make install;
     cd ..;
 fi
@@ -66,15 +78,21 @@ fi
 
 # Compilation programs
 #
-compiler=g++
-cpp_vers=c++11
+CC=g++
 fltk_conf=$fltk_dir/build/bin/fltk-config
 
 # Compilation flags
-fltk_flags=`./$fltk_conf --cxxflags --ldflags --use-images`;
+#
+CPPFLAGS="-std=c++11 -Wall"
+CPPFLAGS="$CPPFLAGS `./$fltk_conf --cxxflags --ldflags --use-images`"
+if [[ $debug == true ]]; then
+    CPPFLAGS="$CPPFLAGS -g3 -ggdb"
+fi
 
 # Compile the program
-$compiler -std=$cpp_vers -Wall $src_file $fltk_flags -s -o $program;
+#
+echo "$CC $CPPFLAGS $src_file -o $program;";
+$CC $CPPFLAGS $src_file -o $program;
 
 # Get the compilation status
 compiling_return=$?
