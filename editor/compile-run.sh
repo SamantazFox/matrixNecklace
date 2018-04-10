@@ -2,6 +2,12 @@
 #
 
 
+function verbose {
+    if [[ $verbose == true ]]; then
+        echo $@;
+    fi
+}
+
 
 
 # ==================
@@ -22,15 +28,22 @@ fltk_dir=fltk-1.3.4-2
 # ==================
 
 # Default behaviors
+#
+debug=false
+force_rebuild=false
 run_it=true
 do_trace=false
-debug=false
+verbose=false
 
+# Parse commandline flags
+#
 for arg in "$@"; do
     case $arg in
         -d) debug=true;;
+        -f) force_rebuild=true;;
         -r) run_it=false;;
         -t) do_trace=true;;
+        -v) verbose=true;;
     esac
 done
 
@@ -43,13 +56,18 @@ done
 fltk_vers=1.3.4
 fltk_tar=$fltk_dir-source.tar.gz
 
-# Download tarball
-if ! [[ -e $fltk_tar ]]; then
-    wget http://fltk.org/pub/fltk/$fltk_vers/$fltk_tar;
-fi
+# Download tarball and extract it if it's the first time
+#
+if ! [[ -e $fltk_tar ]]; then wget http://fltk.org/pub/fltk/$fltk_vers/$fltk_tar; fi
+if ! [[ -d $fltk_dir ]]; then tar -xzf $fltk_tar; fi
 
-if ! [[ -d $fltk_dir ]]; then
-    tar -xzf $fltk_tar;
+# In case of force rebuild of FLTK
+#
+if [[ $force_rebuild == true ]]; then
+    cd $fltk_dir;
+    rm -rf build;
+    make clean;
+    cd ..;
 fi
 
 if ! [[ -d $fltk_dir/build ]]; then
@@ -57,7 +75,13 @@ if ! [[ -d $fltk_dir/build ]]; then
     cd $fltk_dir;
 
     # Configure for local install
-    ./configure --prefix=`pwd`/build --exec-prefix=`pwd`/build --enable-debug;
+    CONFFLAGS="--prefix=`pwd`/build --exec-prefix=`pwd`/build --disable-xft"
+    if [[ $debug == true ]]; then CONFFLAGS="$CONFFLAGS --enable-debug"; fi
+    if ! [[ $verbose == true ]]; then CONFFLAGS="$CONFFLAGS --quiet"; fi
+    verbose "./ configure $CONFFLAGS";
+
+    make config.sub config.guess;
+    ./configure $CONFFLAGS;
     make;
 
     # Generate documentation
@@ -78,21 +102,21 @@ fi
 
 # Compilation programs
 #
-CC=g++
-fltk_conf=$fltk_dir/build/bin/fltk-config
+CXX=g++
+FLC=$fltk_dir/build/bin/fltk-config
 
 # Compilation flags
 #
-CPPFLAGS="-std=c++11 -Wall"
-CPPFLAGS="$CPPFLAGS `./$fltk_conf --cxxflags --ldflags --use-images`"
-if [[ $debug == true ]]; then
-    CPPFLAGS="$CPPFLAGS -g3 -ggdb"
-fi
+CXXFLAGS="-std=c++11 -Wall"
+if [[ $debug == true ]]; then CXXFLAGS="$CXXFLAGS -g3 -ggdb"; fi
+CXXFLAGS="$CXXFLAGS `./$FLC --cxxflags `"
+
+CXXLIBS="`./$FLC --ldflags --use-images`"
 
 # Compile the program
 #
-echo "$CC $CPPFLAGS $src_file -o $program;";
-$CC $CPPFLAGS $src_file -o $program;
+verbose "running $CXX $CXXFLAGS $src_file -o $program $CXXLIBS";
+$CXX $CXXFLAGS $src_file -o $program $CXXLIBS;
 
 # Get the compilation status
 compiling_return=$?
