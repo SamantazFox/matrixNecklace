@@ -64,10 +64,8 @@ if ! [[ -d $fltk_dir ]]; then tar -xzf $fltk_tar; fi
 # In case of force rebuild of FLTK
 #
 if [[ $force_rebuild == true ]]; then
-    cd $fltk_dir;
-    rm -rf build;
-    make clean;
-    cd ..;
+    rm -rf $fltk_dir/build;
+    make -C $fltk_dir clean;
 fi
 
 if ! [[ -d $fltk_dir/build ]]; then
@@ -85,8 +83,7 @@ if ! [[ -d $fltk_dir/build ]]; then
     make;
 
     # Generate documentation
-    cd documentation;
-    make html;
+    make -C documentation/ html;
     cd ..;
 
     # Install the library under build/ and leave
