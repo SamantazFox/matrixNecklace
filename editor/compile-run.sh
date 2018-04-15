@@ -2,14 +2,6 @@
 #
 
 
-function verbose {
-    if [[ $verbose == true ]]; then
-        echo $@;
-    fi
-}
-
-
-
 # ==================
 # Global variables
 # ==================
@@ -22,6 +14,31 @@ trace_file=trace.log
 fltk_dir=fltk-1.3.4-2
 
 
+# ==================
+# Functions
+# ==================
+
+function verbose {
+    if [[ $verbose == true ]]; then
+        echo $@;
+    fi
+}
+
+function show_help {
+    echo "This utility downloads, builds, and installs locally matrixEditor, alongside with";
+    echo "its dependencies, like the FLTK lirary.";
+    echo "";
+    echo "Supported options :";
+    echo "";
+    echo "  -d   Compile both FLTK and matrixEditor with debugging symbols";
+    echo "  -f   Force a 'make clean' and a rebuild on FLTK library";
+    echo "  -h   Display this help";
+    echo "  -r   Run matrixEditor after compilation is it was sucessful";
+    echo "  -t   Run matrixEditor through 'strace'. Needs '-r'";
+    echo "  -v   Be verbose about what happens in the script";
+}
+
+
 
 # ==================
 # Parse inpus args
@@ -31,7 +48,7 @@ fltk_dir=fltk-1.3.4-2
 #
 debug=false
 force_rebuild=false
-run_it=true
+run_it=false
 do_trace=false
 verbose=false
 
@@ -41,7 +58,8 @@ for arg in "$@"; do
     case $arg in
         -d) debug=true;;
         -f) force_rebuild=true;;
-        -r) run_it=false;;
+        -h) show_help && exit;;
+        -r) run_it=true;;
         -t) do_trace=true;;
         -v) verbose=true;;
     esac
@@ -82,11 +100,8 @@ if ! [[ -d $fltk_dir/build ]]; then
     ./configure $CONFFLAGS;
     make;
 
-    # Generate documentation
+    # Generate html documentation, install the library under build/ and leave
     make -C documentation/ html;
-    cd ..;
-
-    # Install the library under build/ and leave
     make install;
     cd ..;
 fi
