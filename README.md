@@ -16,9 +16,9 @@ This project is a simple customizable necklace, based on an ~~AtTiny2313a~~ AtTi
 
 The very first idea came from furrtek's mind, called **jewelmatrix**. You can find his project on [his website](http://furrtek.free.fr/?a=jewelmatrix) (french).
 
-I wanted to improve the thing and add a few options, like a rechargeable Li-Ion battery (instead of the coin one furrtek used) and a cross-platform tool to add custom patterns on the fly, without the need to rebuild and flash the attiny everytime.
+I wanted to improve the thing and add a few options, like a rechargeable Li-Ion battery (instead of the coin cell furrtek used) and a cross-platform tool to add custom patterns on the fly, without the need to rebuild and flash the attiny every time.
 
-Implemented features :
+To be implemented features :
 * Fully customizable patterns
 * Rechargeable by USB
 
@@ -43,21 +43,20 @@ Project's Description
 
 Folders
 -------
-* **/doc**
-    - Sphinx documentation
+* **doc/**
     - Datasheets
-* **/editor**
+* **editor/**
     - C++ Cross-platform editor source code
     - Compile script and instructions
-* **/firmware**
+* **firmware/**
     - AVR hardware source code
     - Compile script and instructions
     - Basic patterns (for reference)
-    - Arduino sketch used to determine matrixes' pinout
-* **/hardware**
-    - **/hardware/schematic**
+    - Arduino sketch used to determinate matrix' pinout
+* **hardware/**
+    - **schematic/**
         - KiCad schematic files (not released yet)
-* **/licenses**
+* **licenses/**
     - Project's license file(s)
     - Every libraries used's specific license file(s)
 
