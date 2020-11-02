@@ -56,7 +56,8 @@ Folders
     - Arduino sketch used to determine matrixes' pinout
 * **/hardware**
     - **/hardware/schematic**
-        - KiCad schematic files (not released yet)
+        - KiCad librarties
+        - KiCad schematic/pcb files
 * **/licenses**
     - Project's license file(s)
     - Every libraries used's specific license file(s)
