@@ -2,7 +2,7 @@
  *
  * Main file for the matrixNecklace editor
  *
- * Copyright 2017 (C) Taz8du29
+ * Copyright 2018 (C) Taz8du29
  * Refer to LICENSE.md for more infos about copyright
 */
 
@@ -13,68 +13,65 @@
 #include "matrixEditor.h"
 
 
-/* CLASS "Led" */
-
-Led::Led(int x, int y, bool state) : Fl_Button(x, y, this->dotSize, this->dotSize)
-{
-    this->box(FL_FRAME_BOX);
-    this->down_box(FL_NO_BOX);
-
-    if (state) { this->value(1); this->image(led_on); }
-    else { this->value(0); this->image(led_off); }
-}
-
-void Led::invert(void)
-{
-    if (this->value()) { this->value(0); this->image(led_off); }
-    else { this->value(1); this->image(led_on); }
-
-    this->redraw();
-}
-
-int Led::handle(int event)
-{
-    switch (event) {
-        case FL_PUSH:
-            if (Fl::event_button() == FL_LEFT_MOUSE) { this->invert(); return 1; }
-            else { return 0; }
-        default:
-            return Fl_Widget::handle(event);
-    }
-}
-
-
-
 /* CLASS "Application" */
 
-Fl_Double_Window* Application::makeWindow(void)
+Application::Application(void) :
+    Fl_Double_Window(0, 0, this->label)
 {
-    // Create main window
-    Fl_Double_Window* win = new Fl_Double_Window(this->sizeX, this->sizeY, this->label);
+    // Add an icon to the top level window
+    this->top_window()->icon((Fl_RGB_Image*) this->ico);
 
-    // Create different childs
-    Fl_Group* ledMatrix = new Fl_Group(0, 0, this->sizeX, this->sizeY);
+    // Set elements' base sizes
+    uint16_t topMenu_h = 30;
+    uint16_t logs_h = 100;
 
-    // Create the buttons matrix. Each line is a Fl_Group containing eight Led
-    // The whole matrix is then nested in the Fl_Group "ledMatrix"
-    for (int i = 0; i < 8; i++) {
-        ledMatrix->add( new Fl_Group(0, (i * Led::dotSize), (Led::dotSize * 8), Led::dotSize) );
+    // In order to properly draw elements, we should get track of where we are
+    Pos offset {0, 0};
 
-        for (int j = 0; j < 8; j++) {
-            ((Fl_Group*) ledMatrix->child(i))->add( new Led((j * Led::dotSize), (i * Led::dotSize), 0) );
-            ((Fl_Group*) ledMatrix->child(i))->end();
-        }
-    }
+    // set the final size of the window
+    this->size(
+        Led::lineSize,
+        topMenu_h + Led::lineSize + logs_h
+    );
 
-    ledMatrix->end();
-    win->add(ledMatrix);
+    // Menu Bar at the top of the window
+    this->topMenu = new Menu(offset.x, offset.y, this->w(), topMenu_h);
+    this->add(topMenu);
+    offset.y += topMenu_h;
+
+    // Resizing frame. This Tile element will include all the window's children,
+    // minus the titlebar, which souldn't be resizeable
+    Fl_Tile* frame = new Fl_Tile(offset.x, offset.y, this->w(), this->h() - offset.y);
+
+
+    // Led Matrix (8x8 Leds array)
+    this->ledMatrix = new Matrix(offset.x, offset.y);
+    frame->add(ledMatrix);
+
+    offset.y += Led::lineSize;
+
+    // In order to make the logs/text output field resizable, we have to encapsulate
+    // it in the 'frame' ("Tile" element define above)
+    this->logField = new LoggerField(offset.x, offset.y, this->w(), logs_h);
+    frame->add(logField);
+
+    // Close the frame object, and add it to the window.
+    frame->end();
+    this->add(frame);
+
+    /* Define the Fl_Tile 'frame' as the rezising box
+     * Then, define minimum and maximum size for the window
+     * Minimum is the size we computed above
+     * Maximum is set to height = 0 (infinite) and width restrained to actual size
+    */
+    this->resizable(frame);
+    this->size_range(this->w(), this->h(), this->w(), 0);
 
     // Select double buffering and full color
     Fl::visual(FL_DOUBLE|FL_RGB);
 
-    // Finish creating window and return object to caller
-    win->end();
-    return win;
+    // Finish creating window
+    this->end();
 }
 
 
@@ -83,15 +80,14 @@ Fl_Double_Window* Application::makeWindow(void)
 
 int main(int argc, char* argv[]) {
     // Create application object
-    Application app;
+    Application* app = new Application();
 
     // Create the main window
-    Fl_Double_Window* window = app.makeWindow();
-    window->show(argc, argv);
+    app->show(argc, argv);
 
     // Run !
     return Fl::run();
 }
 
 
-#endif  /* !_MATRIXEDITOR_H_ */
+#endif  /* !_MATRIXEDITOR_CPP_ */
