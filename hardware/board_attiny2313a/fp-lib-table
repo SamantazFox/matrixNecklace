@@ -1,0 +1,16 @@
+(fp_lib_table
+  (lib
+    (name led_matrix)
+    (type KiCad)
+    (uri "$(KIPRJMOD)/../kicad_libs/led_matrix.pretty")
+    (options "")
+    (descr "Footprints for matrixNecklace")
+  )
+  (lib
+    (name TP4056)
+    (type KiCad)
+    (uri "$(KIPRJMOD)/../kicad_libs/TP4056.pretty")
+    (options "")
+    (descr "Backup for the TP4056 footprint")
+  )
+)

@@ -1,0 +1,16 @@
+(sym_lib_table
+  (lib
+    (name led_matrix)
+    (type Legacy)
+    (uri ${KIPRJMOD}/../kicad_libs/led_matrix.lib)
+    (options "")
+    (descr "")
+  )
+  (lib
+    (name TP4056)
+    (type Legacy)
+    (uri ${KIPRJMOD}/../kicad_libs/TP4056.lib)
+    (options "")
+    (descr "")
+  )
+)
