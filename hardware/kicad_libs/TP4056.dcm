@@ -1,0 +1,8 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP TP4056
+D 1A Standalone Linear Li-lon Battery Charger with Thermal Regulation
+K Li-ion Battery Charger
+$ENDCMP
+#
+#End Doc Library
