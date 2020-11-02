@@ -1,0 +1,6 @@
+# Ignore KiCad backup/cache/rescue files
+hardware/**/*.bak
+hardware/**/*.kicad_pcb-bak
+hardware/**/*-rescue.lib
+hardware/**/*.sch-bak
+hardware/**/fp-info-cache
