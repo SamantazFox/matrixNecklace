@@ -1,0 +1,13 @@
+Reference, Quantity, Value, Footprint, Datasheet
+C1 C3 C2 ,3,"10uF","Capacitor_SMD:C_0603_1608Metric_Pad1.05x0.95mm_HandSolder",""
+D1 ,1,"Green","LED_SMD:LED_0603_1608Metric_Pad1.05x0.95mm_HandSolder",""
+D2 ,1,"Red","LED_SMD:LED_0603_1608Metric_Pad1.05x0.95mm_HandSolder",""
+J1 ,1,"USB","Connector_USB:USB_Micro-B_Molex_47346-0001",""
+J2 ,1,"VBAT","Connector_Wire:SolderWirePad_1x01_SMD_1x2mm","~"
+J3 ,1,"GND","Connector_Wire:SolderWirePad_1x01_SMD_1x2mm","~"
+Led1 ,1,"788ASR_A","led_matrix:ASR788",""
+R2 R1 R4 R5 ,4,"1K","Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder",""
+R3 ,1,"5K","Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder",""
+SW1 ,1,"SW_SPDT","Buttons_Switches_SMD:SW_SPDT_PCM12",""
+U1 ,1,"ATtiny2313A-SU","Package_SO:SOIC-20W_7.5x12.8mm_P1.27mm","http://ww1.microchip.com/downloads/en/DeviceDoc/doc8246.pdf"
+U2 ,1,"TP4056","Package_SO:Diodes_SO-8EP","https://dlnmh9ip6v2uc.cloudfront.net/datasheets/Prototyping/TP4056.pdf"
