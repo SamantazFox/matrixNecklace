@@ -1,0 +1,532 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<export version="D">
+  <design>
+    <source>/home/samantaz/Code/avr/matrixNecklace/matrixNecklace.git/hardware/board_attiny48_88/board_attiny48_88.sch</source>
+    <date>ven. 06 nov. 2020 01:08:20</date>
+    <tool>Eeschema 5.1.6-c6e7f7d~87~ubuntu19.10.1</tool>
+    <sheet number="1" name="/" tstamps="/">
+      <title_block>
+        <title>marixNecklace</title>
+        <company/>
+        <rev>1.0</rev>
+        <date>2018-09-02</date>
+        <source>board_attiny48_88.sch</source>
+        <comment number="1" value=""/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value="Board desgin for ATtiny48/88 microcontroller"/>
+      </title_block>
+    </sheet>
+  </design>
+  <components>
+    <comp ref="J1">
+      <value>USB</value>
+      <footprint>Connector_USB:USB_Micro-B_Molex_47346-0001</footprint>
+      <libsource lib="Connector" part="USB_OTG" description="USB mini/micro connector"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>59CF6792</tstamp>
+    </comp>
+    <comp ref="Led1">
+      <value>788ASR_A</value>
+      <footprint>led_matrix:ASR788</footprint>
+      <libsource lib="led_matrix" part="788ASR_A" description=""/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5B11DEBA</tstamp>
+    </comp>
+    <comp ref="R2">
+      <value>1K</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder</footprint>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5B12B36D</tstamp>
+    </comp>
+    <comp ref="R1">
+      <value>1K</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder</footprint>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5B12B3CC</tstamp>
+    </comp>
+    <comp ref="R3">
+      <value>5K</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder</footprint>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5B12B693</tstamp>
+    </comp>
+    <comp ref="D1">
+      <value>Green</value>
+      <footprint>LED_SMD:LED_0603_1608Metric_Pad1.05x0.95mm_HandSolder</footprint>
+      <libsource lib="Device" part="LED" description="Light emitting diode"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5B12B788</tstamp>
+    </comp>
+    <comp ref="D2">
+      <value>Red</value>
+      <footprint>LED_SMD:LED_0603_1608Metric_Pad1.05x0.95mm_HandSolder</footprint>
+      <libsource lib="Device" part="LED" description="Light emitting diode"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5B12B82A</tstamp>
+    </comp>
+    <comp ref="C1">
+      <value>10uF</value>
+      <footprint>Capacitor_SMD:C_0603_1608Metric_Pad1.05x0.95mm_HandSolder</footprint>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5B12D3A2</tstamp>
+    </comp>
+    <comp ref="C3">
+      <value>10uF</value>
+      <footprint>Capacitor_SMD:C_0603_1608Metric_Pad1.05x0.95mm_HandSolder</footprint>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5B12D3FA</tstamp>
+    </comp>
+    <comp ref="R4">
+      <value>1K</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder</footprint>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5B12E6F3</tstamp>
+    </comp>
+    <comp ref="R5">
+      <value>1K</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder</footprint>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5B8D5E03</tstamp>
+    </comp>
+    <comp ref="U2">
+      <value>TP4056</value>
+      <footprint>Package_SO:Diodes_SO-8EP</footprint>
+      <datasheet>https://dlnmh9ip6v2uc.cloudfront.net/datasheets/Prototyping/TP4056.pdf</datasheet>
+      <libsource lib="TP4056" part="TP4056" description="1A Standalone Linear Li-lon Battery Charger with Thermal Regulation"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>59CFFF5D</tstamp>
+    </comp>
+    <comp ref="C2">
+      <value>10uF</value>
+      <footprint>Capacitor_SMD:C_0603_1608Metric_Pad1.05x0.95mm_HandSolder</footprint>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5FA1249D</tstamp>
+    </comp>
+    <comp ref="J2">
+      <value>VBAT</value>
+      <footprint>Connector_Wire:SolderWirePad_1x01_SMD_1x2mm</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Connector_Generic" part="Conn_01x01" description="Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5FA7F83C</tstamp>
+    </comp>
+    <comp ref="J3">
+      <value>GND</value>
+      <footprint>Connector_Wire:SolderWirePad_1x01_SMD_1x2mm</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Connector_Generic" part="Conn_01x01" description="Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5FA7FD3F</tstamp>
+    </comp>
+    <comp ref="U1">
+      <value>ATtiny48-MU</value>
+      <footprint>Package_DFN_QFN:QFN-32-1EP_5x5mm_P0.5mm_EP3.1x3.1mm</footprint>
+      <datasheet>http://ww1.microchip.com/downloads/en/DeviceDoc/doc8008.pdf</datasheet>
+      <libsource lib="MCU_Microchip_ATtiny" part="ATtiny48-MU" description="12MHz, 4kB Flash, 256B SRAM, 64B EEPROM, QFN-32"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5FA49011</tstamp>
+    </comp>
+    <comp ref="SW1">
+      <value>SW_SPDT</value>
+      <footprint>Buttons_Switches_SMD:SW_SPDT_PCM12</footprint>
+      <libsource lib="Switch" part="SW_SPDT" description="Switch, single pole double throw"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>59CF74A3</tstamp>
+    </comp>
+  </components>
+  <libparts>
+    <libpart lib="Connector" part="USB_OTG">
+      <description>USB mini/micro connector</description>
+      <docs> ~</docs>
+      <footprints>
+        <fp>USB*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">USB_OTG</field>
+      </fields>
+      <pins>
+        <pin num="1" name="VBUS" type="passive"/>
+        <pin num="2" name="D-" type="BiDi"/>
+        <pin num="3" name="D+" type="BiDi"/>
+        <pin num="4" name="ID" type="passive"/>
+        <pin num="5" name="GND" type="passive"/>
+        <pin num="6" name="Shield" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Connector_Generic" part="Conn_01x01">
+      <description>Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>Connector*:*_1x??_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">Conn_01x01</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Pin_1" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="C">
+      <description>Unpolarized capacitor</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>C_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">C</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="passive"/>
+        <pin num="2" name="~" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="LED">
+      <description>Light emitting diode</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>LED*</fp>
+        <fp>LED_SMD:*</fp>
+        <fp>LED_THT:*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">D</field>
+        <field name="Value">LED</field>
+      </fields>
+      <pins>
+        <pin num="1" name="K" type="passive"/>
+        <pin num="2" name="A" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="R">
+      <description>Resistor</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>R_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">R</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="passive"/>
+        <pin num="2" name="~" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="MCU_Microchip_ATtiny" part="ATtiny48-MU">
+      <aliases>
+        <alias>ATtiny88-MU</alias>
+      </aliases>
+      <description>12MHz, 4kB Flash, 256B SRAM, 64B EEPROM, QFN-32</description>
+      <docs>http://ww1.microchip.com/downloads/en/DeviceDoc/doc8008.pdf</docs>
+      <footprints>
+        <fp>QFN*1EP*5x5mm*P0.5mm*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">ATtiny48-MU</field>
+        <field name="Footprint">Package_DFN_QFN:QFN-32-1EP_5x5mm_P0.5mm_EP3.1x3.1mm</field>
+      </fields>
+      <pins>
+        <pin num="1" name="PD3" type="BiDi"/>
+        <pin num="2" name="PD4" type="BiDi"/>
+        <pin num="3" name="PA2" type="BiDi"/>
+        <pin num="4" name="VCC" type="power_in"/>
+        <pin num="5" name="GND" type="power_in"/>
+        <pin num="6" name="PA3" type="BiDi"/>
+        <pin num="7" name="PB6" type="BiDi"/>
+        <pin num="8" name="PB7" type="BiDi"/>
+        <pin num="9" name="PD5" type="BiDi"/>
+        <pin num="10" name="PD6" type="BiDi"/>
+        <pin num="11" name="PD7" type="BiDi"/>
+        <pin num="12" name="PB0" type="BiDi"/>
+        <pin num="13" name="PB1" type="BiDi"/>
+        <pin num="14" name="PB2" type="BiDi"/>
+        <pin num="15" name="PB3" type="BiDi"/>
+        <pin num="16" name="PB4" type="BiDi"/>
+        <pin num="17" name="PB5" type="BiDi"/>
+        <pin num="18" name="AVCC" type="power_in"/>
+        <pin num="19" name="PA0" type="BiDi"/>
+        <pin num="20" name="PC7" type="BiDi"/>
+        <pin num="21" name="GND" type="passive"/>
+        <pin num="22" name="PA1" type="BiDi"/>
+        <pin num="23" name="PC0" type="BiDi"/>
+        <pin num="24" name="PC1" type="BiDi"/>
+        <pin num="25" name="PC2" type="BiDi"/>
+        <pin num="26" name="PC3" type="BiDi"/>
+        <pin num="27" name="PC4" type="BiDi"/>
+        <pin num="28" name="PC5" type="BiDi"/>
+        <pin num="29" name="~RESET~/PC6" type="BiDi"/>
+        <pin num="30" name="PD0" type="BiDi"/>
+        <pin num="31" name="PD1" type="BiDi"/>
+        <pin num="32" name="PD2" type="BiDi"/>
+        <pin num="33" name="GND" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Switch" part="SW_SPDT">
+      <description>Switch, single pole double throw</description>
+      <docs>~</docs>
+      <fields>
+        <field name="Reference">SW</field>
+        <field name="Value">SW_SPDT</field>
+      </fields>
+      <pins>
+        <pin num="1" name="A" type="passive"/>
+        <pin num="2" name="B" type="passive"/>
+        <pin num="3" name="C" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="TP4056" part="TP4056">
+      <description>1A Standalone Linear Li-lon Battery Charger with Thermal Regulation</description>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">TP4056</field>
+        <field name="Footprint">Package_SO:Diodes_SO-8EP</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Temp" type="input"/>
+        <pin num="2" name="Prog" type="power_out"/>
+        <pin num="3" name="Gnd" type="power_in"/>
+        <pin num="4" name="Vcc" type="power_in"/>
+        <pin num="5" name="Bat" type="power_out"/>
+        <pin num="6" name="~Stdby" type="openCol"/>
+        <pin num="7" name="~Chrg" type="openCol"/>
+        <pin num="8" name="CE" type="input"/>
+        <pin num="9" name="Pad" type="power_in"/>
+      </pins>
+    </libpart>
+    <libpart lib="led_matrix" part="788ASR_A">
+      <fields>
+        <field name="Reference">Led</field>
+        <field name="Value">788ASR_A</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Col.1" type="power_in"/>
+        <pin num="2" name="Row.5" type="power_in"/>
+        <pin num="3" name="Row.3" type="power_out"/>
+        <pin num="4" name="Col.4" type="power_out"/>
+        <pin num="5" name="Row.8" type="power_in"/>
+        <pin num="6" name="Col.2" type="power_out"/>
+        <pin num="7" name="Row.2" type="power_in"/>
+        <pin num="8" name="Row.1" type="power_in"/>
+        <pin num="9" name="Col.5" type="power_in"/>
+        <pin num="10" name="Col.7" type="power_out"/>
+        <pin num="11" name="Row.7" type="power_out"/>
+        <pin num="12" name="Row.6" type="power_in"/>
+        <pin num="13" name="Col.8" type="power_out"/>
+        <pin num="14" name="Row.4" type="power_in"/>
+        <pin num="15" name="Col.6" type="power_out"/>
+        <pin num="16" name="Col.3" type="power_out"/>
+      </pins>
+    </libpart>
+  </libparts>
+  <libraries>
+    <library logical="Connector">
+      <uri>/usr/share/kicad/library/Connector.lib</uri>
+    </library>
+    <library logical="Connector_Generic">
+      <uri>/usr/share/kicad/library/Connector_Generic.lib</uri>
+    </library>
+    <library logical="Device">
+      <uri>/usr/share/kicad/library/Device.lib</uri>
+    </library>
+    <library logical="MCU_Microchip_ATtiny">
+      <uri>/usr/share/kicad/library/MCU_Microchip_ATtiny.lib</uri>
+    </library>
+    <library logical="Switch">
+      <uri>/usr/share/kicad/library/Switch.lib</uri>
+    </library>
+    <library logical="TP4056">
+      <uri>/home/samantaz/Code/avr/matrixNecklace/matrixNecklace.git/hardware/board_attiny48_88/../kicad_libs/TP4056.lib</uri>
+    </library>
+    <library logical="led_matrix">
+      <uri>/home/samantaz/Code/avr/matrixNecklace/matrixNecklace.git/hardware/board_attiny48_88/../kicad_libs/led_matrix.lib</uri>
+    </library>
+  </libraries>
+  <nets>
+    <net code="1" name="GND">
+      <node ref="U1" pin="33"/>
+      <node ref="U2" pin="1"/>
+      <node ref="U2" pin="3"/>
+      <node ref="U2" pin="9"/>
+      <node ref="U1" pin="5"/>
+      <node ref="C3" pin="2"/>
+      <node ref="U1" pin="21"/>
+      <node ref="C1" pin="2"/>
+      <node ref="R3" pin="2"/>
+      <node ref="J1" pin="6"/>
+      <node ref="J1" pin="5"/>
+      <node ref="J3" pin="1"/>
+      <node ref="C2" pin="2"/>
+    </net>
+    <net code="2" name="+5V">
+      <node ref="C2" pin="1"/>
+      <node ref="D1" pin="2"/>
+      <node ref="D2" pin="2"/>
+      <node ref="J1" pin="1"/>
+      <node ref="U2" pin="4"/>
+      <node ref="R4" pin="2"/>
+    </net>
+    <net code="3" name="Net-(R3-Pad1)">
+      <node ref="R3" pin="1"/>
+      <node ref="U2" pin="2"/>
+    </net>
+    <net code="4" name="Net-(R4-Pad1)">
+      <node ref="R4" pin="1"/>
+      <node ref="U2" pin="8"/>
+    </net>
+    <net code="5" name="Net-(J1-Pad3)">
+      <node ref="J1" pin="3"/>
+    </net>
+    <net code="6" name="Net-(J1-Pad2)">
+      <node ref="J1" pin="2"/>
+    </net>
+    <net code="7" name="Net-(J1-Pad4)">
+      <node ref="J1" pin="4"/>
+    </net>
+    <net code="8" name="VCC">
+      <node ref="C1" pin="1"/>
+      <node ref="U1" pin="18"/>
+      <node ref="U1" pin="4"/>
+      <node ref="SW1" pin="2"/>
+      <node ref="R5" pin="2"/>
+    </net>
+    <net code="9" name="Net-(R5-Pad1)">
+      <node ref="R5" pin="1"/>
+      <node ref="U1" pin="29"/>
+    </net>
+    <net code="10" name="Net-(SW1-Pad3)">
+      <node ref="SW1" pin="3"/>
+    </net>
+    <net code="11" name="+BATT">
+      <node ref="SW1" pin="1"/>
+      <node ref="J2" pin="1"/>
+      <node ref="U2" pin="5"/>
+      <node ref="C3" pin="1"/>
+    </net>
+    <net code="12" name="Net-(U1-Pad14)">
+      <node ref="U1" pin="14"/>
+    </net>
+    <net code="13" name="Net-(U1-Pad15)">
+      <node ref="U1" pin="15"/>
+    </net>
+    <net code="14" name="Net-(U1-Pad16)">
+      <node ref="U1" pin="16"/>
+    </net>
+    <net code="15" name="Net-(U1-Pad17)">
+      <node ref="U1" pin="17"/>
+    </net>
+    <net code="16" name="Net-(U1-Pad3)">
+      <node ref="U1" pin="3"/>
+    </net>
+    <net code="17" name="Net-(U1-Pad19)">
+      <node ref="U1" pin="19"/>
+    </net>
+    <net code="18" name="Net-(U1-Pad30)">
+      <node ref="U1" pin="30"/>
+    </net>
+    <net code="19" name="Net-(U1-Pad31)">
+      <node ref="U1" pin="31"/>
+    </net>
+    <net code="20" name="Net-(U1-Pad32)">
+      <node ref="U1" pin="32"/>
+    </net>
+    <net code="21" name="Net-(U1-Pad1)">
+      <node ref="U1" pin="1"/>
+    </net>
+    <net code="22" name="Net-(U1-Pad2)">
+      <node ref="U1" pin="2"/>
+    </net>
+    <net code="23" name="PC7_Col1">
+      <node ref="Led1" pin="1"/>
+      <node ref="U1" pin="20"/>
+    </net>
+    <net code="24" name="PB1_Col3">
+      <node ref="Led1" pin="16"/>
+      <node ref="U1" pin="13"/>
+    </net>
+    <net code="25" name="PA1_Row5">
+      <node ref="U1" pin="22"/>
+      <node ref="Led1" pin="2"/>
+    </net>
+    <net code="26" name="PD6_Col8">
+      <node ref="Led1" pin="13"/>
+      <node ref="U1" pin="10"/>
+    </net>
+    <net code="27" name="PB7_Row7">
+      <node ref="U1" pin="8"/>
+      <node ref="Led1" pin="11"/>
+    </net>
+    <net code="28" name="PB6_Col7">
+      <node ref="Led1" pin="10"/>
+      <node ref="U1" pin="7"/>
+    </net>
+    <net code="29" name="PD7_Row4">
+      <node ref="U1" pin="11"/>
+      <node ref="Led1" pin="14"/>
+    </net>
+    <net code="30" name="PB0_Col6">
+      <node ref="Led1" pin="15"/>
+      <node ref="U1" pin="12"/>
+    </net>
+    <net code="31" name="PD5_Row6">
+      <node ref="U1" pin="9"/>
+      <node ref="Led1" pin="12"/>
+    </net>
+    <net code="32" name="PA3_Col5">
+      <node ref="U1" pin="6"/>
+      <node ref="Led1" pin="9"/>
+    </net>
+    <net code="33" name="PC3_Col2">
+      <node ref="U1" pin="26"/>
+      <node ref="Led1" pin="6"/>
+    </net>
+    <net code="34" name="PC1_Col4">
+      <node ref="U1" pin="24"/>
+      <node ref="Led1" pin="4"/>
+    </net>
+    <net code="35" name="Net-(D2-Pad1)">
+      <node ref="D2" pin="1"/>
+      <node ref="R2" pin="2"/>
+    </net>
+    <net code="36" name="Net-(D1-Pad1)">
+      <node ref="D1" pin="1"/>
+      <node ref="R1" pin="2"/>
+    </net>
+    <net code="37" name="Chrg">
+      <node ref="R2" pin="1"/>
+      <node ref="U2" pin="7"/>
+    </net>
+    <net code="38" name="Stdby">
+      <node ref="R1" pin="1"/>
+      <node ref="U2" pin="6"/>
+    </net>
+    <net code="39" name="PC0_Row3">
+      <node ref="U1" pin="23"/>
+      <node ref="Led1" pin="3"/>
+    </net>
+    <net code="40" name="PC2_Row8">
+      <node ref="Led1" pin="5"/>
+      <node ref="U1" pin="25"/>
+    </net>
+    <net code="41" name="PC4_Row2">
+      <node ref="U1" pin="27"/>
+      <node ref="Led1" pin="7"/>
+    </net>
+    <net code="42" name="PC5_Row1">
+      <node ref="Led1" pin="8"/>
+      <node ref="U1" pin="28"/>
+    </net>
+  </nets>
+</export>
